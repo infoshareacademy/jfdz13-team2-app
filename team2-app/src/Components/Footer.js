@@ -6,7 +6,7 @@ import FolderIcon from "@material-ui/icons/Folder";
 import RestoreIcon from "@material-ui/icons/Restore";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
-
+//Navigation style
 const useStyles = makeStyles({
   root: {
     width: 500,
