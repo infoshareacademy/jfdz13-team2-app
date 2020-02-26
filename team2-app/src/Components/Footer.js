@@ -7,33 +7,52 @@ import RestoreIcon from "@material-ui/icons/Restore";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 
-const Footer = () => {
-  return (
-    <div style={{ position: "absolute", bottom: "0" }}>
-      <BottomNavigation value={"value"} onChange={() => {}} className={""}>
-        <BottomNavigationAction
-          label="Recents"
-          value="recents"
-          icon={<RestoreIcon />}
-        />
-        <BottomNavigationAction
-          label="Favorites"
-          value="favorites"
-          icon={<FavoriteIcon />}
-        />
-        <BottomNavigationAction
-          label="Nearby"
-          value="nearby"
-          icon={<LocationOnIcon />}
-        />
-        <BottomNavigationAction
-          label="Folder"
-          value="folder"
-          icon={<FolderIcon />}
-        />
-      </BottomNavigation>
-    </div>
-  );
-};
+const useStyles = makeStyles({
+  root: {
+    width: 500,
+    background: "#01091C"
+  }
+});
 
-export default Footer;
+export default function LabelBottomNavigation() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState("recents");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <BottomNavigation
+      style={{ marginTop: "50vh", marginLeft: "50vh" }}
+      value={value}
+      onChange={handleChange}
+      className={classes.root}
+    >
+      <BottomNavigationAction
+        style={{ color: "#fe466a" }}
+        label="Recents"
+        value="recents"
+        icon={<RestoreIcon />}
+      />
+      <BottomNavigationAction
+        style={{ color: "#fe466a" }}
+        label="Favorites"
+        value="favorites"
+        icon={<FavoriteIcon />}
+      />
+      <BottomNavigationAction
+        style={{ color: "#fe466a" }}
+        label="Nearby"
+        value="nearby"
+        icon={<LocationOnIcon />}
+      />
+      <BottomNavigationAction
+        style={{ color: "#fe466a" }}
+        label="Folder"
+        value="folder"
+        icon={<FolderIcon />}
+      />
+    </BottomNavigation>
+  );
+}
