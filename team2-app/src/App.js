@@ -1,12 +1,15 @@
 import React from "react";
 import "./App.css";
+import Footer from "./Components/Footer";
+// import ResponsiveDrawer from "./Components/Nav";
 
 function App() {
   return (
-    <>
-      <p>App</p>
-      <img src={`${process.env.PUBLIC_URL}/images/girl.svg`} />
-    </>
+    <div>
+      <p>Apps</p>
+
+      <Footer />
+    </div>
   );
 }
 
