@@ -1,8 +1,6 @@
 import React from "react";
 import "./App.css";
 import Footer from "./Components/Footer";
-
-import SegmentExampleRaised from "./Components/AllPlans/AllPlans.js";
 import { BrowserRouter, NavLink, Switch, Route } from "react-router-dom";
 
 import CenteredGrid from "./Components/AllPlans/AllPlans";
@@ -19,7 +17,10 @@ function App() {
             <ul>
               <li>
                 <NavLink exact to="/">
-                  <span role="img">🏠</span> Move On
+                  <span aria-label="home" role="img">
+                    🏠
+                  </span>{" "}
+                  Move On
                 </NavLink>
               </li>
               <li>
@@ -32,7 +33,6 @@ function App() {
 
           <div className="container">
             <Switch>
-              {/* <Route path="/components/test/SignIn" component={SignIn} /> */}
               <Route path="/Components/AllPlans" component={CenteredGrid} />
             </Switch>
           </div>
