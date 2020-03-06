@@ -1,4 +1,4 @@
-export const Harder = [
+const Harder = [
   {
     id: 1,
     name: "Plank to pike",
@@ -36,3 +36,5 @@ export const Harder = [
     image: `${process.env.PUBLIC_URL}/images/harder/7_Harder_M.jpg`
   }
 ];
+
+export default Harder;
