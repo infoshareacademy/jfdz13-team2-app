@@ -31,7 +31,7 @@ export default function ButtonAppBar() {
             style={{ width: "80px", height: "80px" }}
           />
           <Typography variant="h6" className={classes.title}>
-            START TODAY!!!!
+            DAY 1
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

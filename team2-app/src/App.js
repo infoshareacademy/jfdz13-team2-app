@@ -2,17 +2,17 @@ import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import "./App.css";
 import Footer from "./Components/Footer";
-import TrainingList from "./Components/TrainingList";
+import SlimmerTraining from "./Components/SlimmerTraining";
 import ButtonAppBar from "./Components/ButtonAppBar";
+
 // import ResponsiveDrawer from "./Components/Nav";
 
 function App() {
   return (
-    <div style={{ backgroundColor: "#030b2f" }}>
+    <div>
       <CssBaseline />
       <ButtonAppBar />
-      <TrainingList />
-
+      <SlimmerTraining />
       <Footer />
     </div>
   );
