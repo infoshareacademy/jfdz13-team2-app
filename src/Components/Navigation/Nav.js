@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
@@ -18,33 +17,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 const drawerWidth = 240;
-
-function ListItemLink(props) {
-  const { icon, primary, to, onClick } = props;
-
-  const renderLink = React.useMemo(
-    () =>
-      React.forwardRef((itemProps, ref) => (
-        <RouterLink to={to} ref={ref} {...itemProps} onClick={onClick} />
-      )),
-    [to, onClick]
-  );
-
-  return (
-    <li>
-      <ListItem button component={renderLink}>
-        {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
-        <ListItemText primary={primary} />
-      </ListItem>
-    </li>
-  );
-}
-
-ListItemLink.propTypes = {
-  icon: PropTypes.element,
-  primary: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired
-};
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -88,37 +60,43 @@ const Navigation = props => {
     setMobileOpen(!mobileOpen);
   };
 
+  const closeDrawer = () => setMobileOpen(false);
+
+  const ListItemLink = props => {
+    const { icon, primary, to } = props;
+
+    const renderLink = React.useMemo(
+      () =>
+        React.forwardRef((itemProps, ref) => (
+          <RouterLink to={to} ref={ref} {...itemProps} onClick={closeDrawer} />
+        )),
+      [to]
+    );
+
+    return (
+      <li>
+        <ListItem button component={renderLink}>
+          {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
+          <ListItemText primary={primary} />
+        </ListItem>
+      </li>
+    );
+  };
+
   const drawer = (
     <div>
       <div className={classes.toolbar} />
       <Divider />
       <List>
+        <ListItemLink to="/" primary="Why MOVE ON" icon={<InboxIcon />} />
         <ListItemLink
-          onClick={handleDrawerToggle}
-          to="/"
-          primary="Why MOVE ON"
-          icon={<InboxIcon />}
-        />
-        <ListItemLink
-          onClick={handleDrawerToggle}
           to="/all-plans"
           primary="All Plans"
           icon={<InboxIcon />}
         />
+        <ListItemLink to="/my-plan" primary="My Plan" icon={<InboxIcon />} />
+        <ListItemLink to="/calendar" primary="Calendar" icon={<InboxIcon />} />
         <ListItemLink
-          onClick={handleDrawerToggle}
-          to="/my-plan"
-          primary="My Plan"
-          icon={<InboxIcon />}
-        />
-        <ListItemLink
-          onClick={handleDrawerToggle}
-          to="/calendar"
-          primary="Calendar"
-          icon={<InboxIcon />}
-        />
-        <ListItemLink
-          onClick={handleDrawerToggle}
           to="/my-profile"
           primary="My Profile"
           icon={<InboxIcon />}
