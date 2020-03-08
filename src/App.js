@@ -18,7 +18,7 @@ function App() {
         <Navigation>
         <hr />
         <Switch>
-          <Route exact path="/czad" component={WhyMoveOn} />
+          <Route exact path="/" component={WhyMoveOn} />
           <Route exact path="/all-plans" component={AllPlans} />
           <Route exact path="/my-plan" component={MyPlan} />
           <Route exact path="/calendar" component={Calendar} />

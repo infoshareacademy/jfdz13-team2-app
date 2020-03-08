@@ -8,30 +8,26 @@ import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import List from "@material-ui/core/List";
-import { Link as RouterLink} from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import AllPlans from "../AllPlans/AllPlans";
-import Calendar from "../Calendar/Calendar";
-import MyPlan from "../MyPlan/MyPlan";
-import MyProfile from "../MyProfile/MyProfile";
-
-import WhyMoveOn from "../WhyMoveOn/WhyMoveOn";
 
 const drawerWidth = 240;
 
 function ListItemLink(props) {
-  const { icon, primary, to } = props;
+  const { icon, primary, to, onClick } = props;
 
   const renderLink = React.useMemo(
-    () => React.forwardRef((itemProps, ref) => <RouterLink to={to} ref={ref} {...itemProps} />),
-    [to],
+    () =>
+      React.forwardRef((itemProps, ref) => (
+        <RouterLink to={to} ref={ref} {...itemProps} onClick={onClick} />
+      )),
+    [to, onClick]
   );
 
   return (
@@ -47,7 +43,7 @@ function ListItemLink(props) {
 ListItemLink.propTypes = {
   icon: PropTypes.element,
   primary: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired
 };
 
 const useStyles = makeStyles(theme => ({
@@ -97,21 +93,37 @@ const Navigation = props => {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-      <ListItemLink to="/" primary="Why MOVE ON" icon={<InboxIcon />} />
+        <ListItemLink
+          onClick={handleDrawerToggle}
+          to="/"
+          primary="Why MOVE ON"
+          icon={<InboxIcon />}
+        />
+        <ListItemLink
+          onClick={handleDrawerToggle}
+          to="/all-plans"
+          primary="All Plans"
+          icon={<InboxIcon />}
+        />
+        <ListItemLink
+          onClick={handleDrawerToggle}
+          to="/my-plan"
+          primary="My Plan"
+          icon={<InboxIcon />}
+        />
+        <ListItemLink
+          onClick={handleDrawerToggle}
+          to="/calendar"
+          primary="Calendar"
+          icon={<InboxIcon />}
+        />
+        <ListItemLink
+          onClick={handleDrawerToggle}
+          to="/my-profile"
+          primary="My Profile"
+          icon={<InboxIcon />}
+        />
       </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List></List>
     </div>
   );
 
@@ -130,7 +142,7 @@ const Navigation = props => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Responsive drawer
+            MOVE ON App
           </Typography>
         </Toolbar>
       </AppBar>
@@ -159,43 +171,19 @@ const Navigation = props => {
               paper: classes.drawerPaper
             }}
             variant="permanent"
-            open
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
           >
             {drawer}
           </Drawer>
         </Hidden>
       </nav>
-       <main className={classes.content}>
+      <main className={classes.content}>
         <div className={classes.toolbar} />
         {props.children}
-
       </main>
     </div>
   );
 };
-
-// return (
-//   <div>
-//     <nav>
-//       <ul>
-//         <li>
-//           <Link to="/">Why MOVE ON</Link>
-//         </li>
-//         <li>
-//           <Link to="/all-plans">All Plans</Link>
-//         </li>
-//         <li>
-//           <Link to="/my-plan">My Plan</Link>
-//         </li>
-//         <li>
-//           <Link to="/calendar">Calendar</Link>
-//         </li>
-//         <li>
-//           <Link to="/my-profile">My Profile</Link>
-//         </li>
-//       </ul>
-//     </nav>
-//   </div>
-// );
 
 export default Navigation;
