@@ -8,6 +8,10 @@ import MyPlan from "./Components/MyPlan/MyPlan";
 import MyProfile from "./Components/MyProfile/MyProfile";
 import WhyMoveOn from "./Components/WhyMoveOn/WhyMoveOn";
 
+import Footer from "./Components/Footer";
+
+import CenteredGrid from "./Components/AllPlans/AllPlans";
+
 // import ResponsiveDrawer from "./Components/Nav";
 
 function App() {
