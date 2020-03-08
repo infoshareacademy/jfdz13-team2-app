@@ -7,16 +7,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
-import Slimmer from "../Data/Slimmer";
-import "../App.css";
-
-// const SlimmerTraining = () => {
-//     return (
-//         <>
-//             {Slimmer.map(item => <img className="training__picture" src={item.image} alt={item.name} />)}
-//         </>
-//     )
-// }
+import Slimmer from "../../Data/Slimmer";
+import "../../App.css";
 
 const useStyles = makeStyles(theme => ({
   root: {

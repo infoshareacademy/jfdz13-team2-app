@@ -1,20 +1,28 @@
 import React from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import "./App.css";
-import Footer from "./Components/Footer";
-import SlimmerTraining from "./Components/SlimmerTraining";
-import ButtonAppBar from "./Components/ButtonAppBar";
-
-// import ResponsiveDrawer from "./Components/Nav";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import NavContainer from "./Components/Navigation/NavContainer";
+import AllPlans from "./Components/AllPlans/AllPlans";
+import Calendar from "./Components/Calendar/Calendar";
+import MyPlan from "./Components/MyPlan/SlimmerTraining";
+import MyProfile from "./Components/MyProfile/MyProfile";
+import WhyMoveOn from "./Components/WhyMoveOn/WhyMoveOn";
 
 function App() {
   return (
-    <div>
-      <CssBaseline />
-      <ButtonAppBar />
-      <SlimmerTraining />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div>
+        <NavContainer />
+        <hr />
+        <Switch>
+          <Route exact path="/" component={WhyMoveOn} />
+          <Route exact path="/all-plans" component={AllPlans} />
+          <Route exact path="/my-plan" component={MyPlan} />
+          <Route exact path="/calendar" component={Calendar} />
+          <Route exact path="/my-profile" component={MyProfile} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
