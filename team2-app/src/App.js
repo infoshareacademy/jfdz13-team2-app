@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import NavContainer from "./Components/Navigation/NavContainer";
 import AllPlans from "./Components/AllPlans/AllPlans";
 import Calendar from "./Components/Calendar/Calendar";
 import MyPlan from "./Components/MyPlan/MyPlan";
@@ -11,6 +10,7 @@ import WhyMoveOn from "./Components/WhyMoveOn/WhyMoveOn";
 import Footer from "./Components/Footer";
 
 import CenteredGrid from "./Components/AllPlans/AllPlans";
+import Navigation from "./Components/Navigation/Nav";
 
 // import ResponsiveDrawer from "./Components/Nav";
 
@@ -18,7 +18,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <NavContainer />
+        <Navigation />
         <hr />
         <Switch>
           <Route exact path="/" component={WhyMoveOn} />
