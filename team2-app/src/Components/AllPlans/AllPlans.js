@@ -20,15 +20,16 @@ import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+import { blue } from "@material-ui/core/colors";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-
+import StarBorderRoundedIcon from "@material-ui/icons/StarBorderRounded";
+import StarHalfRoundedIcon from "@material-ui/icons/StarHalfRounded";
+import StarRoundedIcon from "@material-ui/icons/StarRounded";
+import StartNow from "./StartNow.js";
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: 345
+    maxWidth: "31%"
   },
   media: {
     height: 0,
@@ -45,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     transform: "rotate(180deg)"
   },
   avatar: {
-    backgroundColor: red[500]
+    backgroundColor: blue[500]
   }
 }));
 
@@ -67,31 +68,42 @@ export default function AllPlansContainer() {
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            <StartNow />
           </IconButton>
         }
-        title="BE STRONGER"
+        title="STRONGER"
         subheader="Gain strength"
       />
       <CardMedia
         className={classes.media}
-        image="public/images/stronger/stronger_main.jpg"
+        image="/images/stronger/stronger_main.jpg"
         title="BE STRONGER"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          Over the next <strong>3 weeks</strong> you will chellenge every limit
+          and build unbelivable <strong>life-changing fittnes</strong> and
+          athleticism.
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <StarRoundedIcon />
         </IconButton>
+        <IconButton aria-label="add to favorites">
+          <StarRoundedIcon />
+        </IconButton>
+        <IconButton aria-label="add to favorites">
+          <StarHalfRoundedIcon />
+        </IconButton>
+        <IconButton aria-label="add to favorites">
+          <StarBorderRoundedIcon />
+        </IconButton>
+
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
+
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded
@@ -104,33 +116,27 @@ export default function AllPlansContainer() {
         </IconButton>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
+        <CardContent style={{ background: "#00BCD4" }}>
+          <Typography paragraph>WORKOUT ROUTINE:</Typography>
+          <Typography paragraph>The warmup:</Typography>
           <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and
-            set aside for 10 minutes.
+            Before each workout, spend 10 minutes doing a brisk walk, jog, or
+            bike ride to get your heart rate up.
           </Typography>
           <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet
-            over medium-high heat. Add chicken, shrimp and chorizo, and cook,
-            stirring occasionally until lightly browned, 6 to 8 minutes.
-            Transfer shrimp to a large plate and set aside, leaving chicken and
-            chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes,
-            onion, salt and pepper, and cook, stirring often until thickened and
-            fragrant, about 10 minutes. Add saffron broth and remaining 4 1/2
-            cups chicken broth; bring to a boil.
+            Then for 5–6 minutes do some dynamic stretching. Workout 1–3:
+            Full-body approach with a mix of upper- and lower-body strength
+            exercises maximizes your time and eases you in. Complete 3 sets of
+            each exercise, 10–15 reps each (as noted below).
           </Typography>
           <Typography paragraph>
-            Add rice and stir very gently to distribute. Top with artichokes and
-            peppers, and cook without stirring, until most of the liquid is
-            absorbed, 15 to 18 minutes. Reduce heat to medium-low, add reserved
-            shrimp and mussels, tucking them down into the rice, and cook again
-            without stirring, until mussels have opened and rice is just tender,
-            5 to 7 minutes more. (Discard any mussels that don’t open.)
+            Rest 30–60 second between sets and 1–2 minutes between each
+            exercise. Workout 4: Combination of cardio-based exercises and
+            core-specific moves challenges your endurance.
           </Typography>
           <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then
-            serve.
+            Treat this routine as a circuit: Complete 1 set of each exercise
+            back to back, rest for 1 minute, then repeat 2 more times.
           </Typography>
         </CardContent>
       </Collapse>
