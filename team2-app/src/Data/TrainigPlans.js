@@ -1,4 +1,4 @@
-export const TrainingPlans = [
+const TrainingPlans = [
   {
     id: 1,
     name: "Slimmer",
@@ -20,3 +20,5 @@ export const TrainingPlans = [
     content: "Sculpt your perfect six-pack in just three weeks"
   }
 ];
+
+export default TrainingPlans;

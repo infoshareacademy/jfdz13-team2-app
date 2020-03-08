@@ -1,4 +1,4 @@
-export const Slimmer = [
+const Slimmer = [
   {
     id: 1,
     name: "Running",
@@ -36,3 +36,5 @@ export const Slimmer = [
     image: `${process.env.PUBLIC_URL}/images/slimmer/7_Slimmer.jpg`
   }
 ];
+
+export default Slimmer;

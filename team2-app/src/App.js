@@ -4,15 +4,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavContainer from "./Components/Navigation/NavContainer";
 import AllPlans from "./Components/AllPlans/AllPlans";
 import Calendar from "./Components/Calendar/Calendar";
-import MyPlan from "./Components/MyPlan/MyPlan";
+import MyPlan from "./Components/MyPlan/SlimmerTraining";
 import MyProfile from "./Components/MyProfile/MyProfile";
 import WhyMoveOn from "./Components/WhyMoveOn/WhyMoveOn";
-
-import Footer from "./Components/Footer";
-
-import CenteredGrid from "./Components/AllPlans/AllPlans";
-
-// import ResponsiveDrawer from "./Components/Nav";
 
 function App() {
   return (

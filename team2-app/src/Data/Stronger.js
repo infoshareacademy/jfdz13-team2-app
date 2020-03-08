@@ -1,4 +1,4 @@
-export const Stronger = [
+const Stronger = [
   {
     id: 1,
     name: "Weight swing",
@@ -36,3 +36,5 @@ export const Stronger = [
     image: `${process.env.PUBLIC_URL}/images/stronger/7_Stronger.jpg`
   }
 ];
+
+export default Stronger;
