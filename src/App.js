@@ -15,15 +15,16 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <Navigation />
+        <Navigation>
         <hr />
         <Switch>
-          <Route exact path="/" component={WhyMoveOn} />
+          <Route exact path="/czad" component={WhyMoveOn} />
           <Route exact path="/all-plans" component={AllPlans} />
           <Route exact path="/my-plan" component={MyPlan} />
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/my-profile" component={MyProfile} />
         </Switch>
+        </Navigation>
       </div>
     </BrowserRouter>
   );

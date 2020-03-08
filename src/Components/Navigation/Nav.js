@@ -8,7 +8,7 @@ import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import List from "@material-ui/core/List";
-import { Link } from "react-router-dom";
+import { Link as RouterLink} from "react-router-dom";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -21,9 +21,34 @@ import AllPlans from "../AllPlans/AllPlans";
 import Calendar from "../Calendar/Calendar";
 import MyPlan from "../MyPlan/MyPlan";
 import MyProfile from "../MyProfile/MyProfile";
+
 import WhyMoveOn from "../WhyMoveOn/WhyMoveOn";
 
 const drawerWidth = 240;
+
+function ListItemLink(props) {
+  const { icon, primary, to } = props;
+
+  const renderLink = React.useMemo(
+    () => React.forwardRef((itemProps, ref) => <RouterLink to={to} ref={ref} {...itemProps} />),
+    [to],
+  );
+
+  return (
+    <li>
+      <ListItem button component={renderLink}>
+        {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
+        <ListItemText primary={primary} />
+      </ListItem>
+    </li>
+  );
+}
+
+ListItemLink.propTypes = {
+  icon: PropTypes.element,
+  primary: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
+};
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -72,27 +97,7 @@ const Navigation = props => {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <ListItem button component={WhyMoveOn}>
-          <ListItemIcon></ListItemIcon>
-          <ListItemText />
-        </ListItem>
-        <ListItem button component={AllPlans}>
-          <ListItemIcon></ListItemIcon>
-          <ListItemText />
-        </ListItem>
-        <ListItem button component={MyPlan}>
-          <ListItemIcon></ListItemIcon>
-          <ListItemText />
-        </ListItem>
-        <ListItem button component={Calendar}>
-          <ListItemIcon></ListItemIcon>
-          <ListItemText />
-        </ListItem>
-        <ListItem button component={MyProfile}>
-          <ListItemIcon></ListItemIcon>
-          <ListItemText />
-        </ListItem>
-        ))}
+      <ListItemLink to="/" primary="Why MOVE ON" icon={<InboxIcon />} />
       </List>
       <Divider />
       <List>
@@ -160,15 +165,10 @@ const Navigation = props => {
           </Drawer>
         </Hidden>
       </nav>
-      <main className={classes.content}>
+       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>
-          <Link to="/">Why MOVE ON</Link>
-        </Typography>
-        <Typography paragraph></Typography>
-        <Typography paragraph></Typography>
-        <Typography paragraph></Typography>
-        <Typography paragraph></Typography>
+        {props.children}
+
       </main>
     </div>
   );
