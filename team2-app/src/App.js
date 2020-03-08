@@ -1,7 +1,14 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import NavContainer from "./Components/Navigation/NavContainer";
+import AllPlans from "./Components/AllPlans/AllPlans";
+import Calendar from "./Components/Calendar/Calendar";
+import MyPlan from "./Components/MyPlan/MyPlan";
+import MyProfile from "./Components/MyProfile/MyProfile";
+import WhyMoveOn from "./Components/WhyMoveOn/WhyMoveOn";
+
 import Footer from "./Components/Footer";
-import { BrowserRouter, NavLink, Switch, Route } from "react-router-dom";
 
 import CenteredGrid from "./Components/AllPlans/AllPlans";
 
@@ -9,38 +16,19 @@ import CenteredGrid from "./Components/AllPlans/AllPlans";
 
 function App() {
   return (
-    <div>
-      <p>Apps</p>
-      <header>
-        <BrowserRouter>
-          <nav>
-            <ul>
-              <li>
-                <NavLink exact to="/">
-                  <span aria-label="home" role="img">
-                    🏠
-                  </span>{" "}
-                  Move On
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/Components/AllPlans/AllPlans.js">
-                  All Plans
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
-
-          <div className="container">
-            <Switch>
-              <Route path="/Components/AllPlans" component={CenteredGrid} />
-            </Switch>
-          </div>
-        </BrowserRouter>
-      </header>
-
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div>
+        <NavContainer />
+        <hr />
+        <Switch>
+          <Route exact path="/" component={WhyMoveOn} />
+          <Route exact path="/all-plans" component={AllPlans} />
+          <Route exact path="/my-plan" component={MyPlan} />
+          <Route exact path="/calendar" component={Calendar} />
+          <Route exact path="/my-profile" component={MyProfile} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
