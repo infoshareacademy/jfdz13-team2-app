@@ -44,10 +44,11 @@
 }
 
 .training__container {
-  background-color: #030b2f;
+  background-color: rgb(243, 239, 239);
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .trainingCard__header {
@@ -59,12 +60,27 @@
 }
 
 .myPlan__title {
+  text-align: center;
   font-size: 40px;
-  color: white;
+  color: #030b2f;
 }
 
 .myPlan__subtitle {
   font-size: 30px;
-  color: white;
+  color: #030b2f;
   margin: 0 auto 20px;
+}
+
+.trainingCard__image {
+  height: 250px;
+  width: 300px;
+  object-fit: contain;
+}
+
+.trainingCard__time {
+  font-weight: bold;
+  font-size: 15px;
+  border: 2px solid #fe466a;
+  border-radius: 50%;
+  padding: 3%;
 }
