@@ -41,7 +41,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function AllPlansContainer({ card }) {
+// export default function AllPlansContainer({ card }) {
+export default function AllPlansContainer() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -62,7 +63,8 @@ export default function AllPlansContainer({ card }) {
             <StartNow />
           </IconButton>
         }
-        title={card.title}
+        // title={card.title}
+        title="STRONGER"
         subheader="Gain strength"
       />
       <CardMedia
