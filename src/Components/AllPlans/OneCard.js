@@ -12,11 +12,9 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import StarBorderRoundedIcon from "@material-ui/icons/StarBorderRounded";
-import StarHalfRoundedIcon from "@material-ui/icons/StarHalfRounded";
-import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import StartNow from "./StartNow.js";
 import VStepper from "./VStepper.js";
+import Rating from "./Rating";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,8 +39,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-// export default function AllPlansContainer({ card }) {
-export default function AllPlansContainer() {
+export default function AllPlansContainer({
+  id,
+  title,
+  goal,
+  rating,
+  content,
+  step_1,
+  step_2,
+  step_3
+}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -63,14 +69,13 @@ export default function AllPlansContainer() {
             <StartNow />
           </IconButton>
         }
-        // title={card.title}
-        title="STRONGER"
+        title={title}
+        // title="STRONGER"
         subheader="Gain strength"
       />
       <CardMedia
         className={classes.media}
         image="/images/stronger/stronger_main.jpg"
-        title="BE STRONGER"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
@@ -80,18 +85,7 @@ export default function AllPlansContainer() {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <StarRoundedIcon />
-        </IconButton>
-        <IconButton aria-label="add to favorites">
-          <StarRoundedIcon />
-        </IconButton>
-        <IconButton aria-label="add to favorites">
-          <StarHalfRoundedIcon />
-        </IconButton>
-        <IconButton aria-label="add to favorites">
-          <StarBorderRoundedIcon />
-        </IconButton>
+        <Rating rating={rating} />
 
         <IconButton aria-label="share">
           <ShareIcon />
