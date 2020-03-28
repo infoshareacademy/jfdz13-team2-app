@@ -1,51 +1,97 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import StartNow from "../AllPlans/StartNow";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import "../../App.css";
+import MyPlanButton from "./MyPlanButton";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: 300,
-    margin: 10
-  },
-  margin: {
-    margin: theme.spacing(1)
-  },
-  extendedIcon: {
-    marginRight: theme.spacing(1)
+class MyTrainingCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      time: 30,
+      exerciseIsStarted: false
+    };
   }
-}));
 
-const MyTrainingCard = props => {
-  const classes = useStyles();
-  const { card } = props;
+  counterTime = () => {
+    if (this.state.time) {
+      this.setState({
+        time: this.state.time - 1
+      });
+    }
+  };
 
-  return (
-    <>
-      <Card key={card.id} className={classes.root}>
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="h2"
-            className="trainingCard__header"
-          >
-            {card.name}
-          </Typography>
-        </CardContent>
-        <img alt={card.name} src={card.image} className="trainingCard__image" />
+  handleTimer = () => {
+    this.setState({
+      exerciseIsStarted: !this.state.exerciseIsStarted
+    });
+    setInterval(this.counterTime, 1000);
+  };
 
-        <CardActions className="trainingCard__checkIcon">
-          <StartNow />
-          <span className="trainingCard__time">30s</span>
-        </CardActions>
-      </Card>
-    </>
-  );
-};
+  render() {
+    return (
+      <>
+        <Card key={this.props.card.id} className="classes__root">
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="h2"
+              className={
+                this.state.time
+                  ? "trainingCard__header"
+                  : "trainingCard__header training__card__disabled"
+              }
+            >
+              {this.props.card.name}
+            </Typography>
+          </CardContent>
+          <img
+            alt={this.props.card.name}
+            src={this.props.card.image}
+            className={
+              this.state.time
+                ? "trainingCard__image"
+                : "trainingCard__image training__card__disabled"
+            }
+          />
+
+          <CardActions className="trainingCard__checkIcon">
+            <MyPlanButton
+              onClicked={this.handleTimer}
+              content={this.state.time ? "START NOW" : "GOOD JOB!!!"}
+              disabled={this.state.exerciseIsStarted ? true : false}
+            />
+            <div className="countdown">
+              <div
+                className={
+                  this.state.time
+                    ? "countdown-number"
+                    : "countdown-number training__card__disabled"
+                }
+              >
+                {this.state.time}
+              </div>
+              <svg className="countdown-svg">
+                <circle
+                  r="18"
+                  cx="20"
+                  cy="20"
+                  style={
+                    this.state.exerciseIsStarted
+                      ? { animation: "countdown 30s linear forwards" }
+                      : null
+                  }
+                ></circle>
+              </svg>
+            </div>
+          </CardActions>
+        </Card>
+      </>
+    );
+  }
+}
 
 export default MyTrainingCard;
