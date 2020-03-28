@@ -15,6 +15,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import StartNow from "./StartNow.js";
 import VStepper from "./VStepper.js";
 import Rating from "./Rating";
+import TrainingPlans from "../../Data/TrainingPlans.js";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,6 +42,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function AllPlansContainer({
   id,
+  avatar,
   title,
   goal,
   rating,
@@ -61,7 +63,7 @@ export default function AllPlansContainer({
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            S
+            {TrainingPlans.avatar}
           </Avatar>
         }
         action={
@@ -79,9 +81,7 @@ export default function AllPlansContainer({
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Over the next <strong>3 weeks</strong> you will chellenge every limit
-          and build unbelivable <strong>life-changing fittnes</strong> and
-          athleticism.
+          {TrainingPlans.content}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
