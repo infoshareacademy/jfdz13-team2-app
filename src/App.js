@@ -2,8 +2,9 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AllPlans from "./Components/AllPlans/AllPlans";
+
 import Calendar from "./Components/Calendar/Calendar";
-import MyPlan from "./Components/MyPlan/SlimmerTraining";
+import MyPlan from "./Components/MyPlan/MyPlan";
 import MyProfile from "./Components/MyProfile/MyProfile";
 import WhyMoveOn from "./Components/WhyMoveOn/WhyMoveOn";
 
