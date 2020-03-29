@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function AllPlansContainer({
+export default function PlanCard({
   id,
   avatar,
   title,
@@ -106,7 +106,7 @@ export default function AllPlansContainer({
         <CardContent>
           <Typography paragraph>WORKOUT ROUTINE:</Typography>
           <Typography paragraph>The warmup:</Typography>
-          <VStepper />
+          <VStepper step_1={step_1} step_2={step_2} step_3={step_3} />
         </CardContent>
       </Collapse>
     </Card>
