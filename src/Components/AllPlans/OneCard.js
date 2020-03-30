@@ -63,7 +63,7 @@ export default function AllPlansContainer({
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            {TrainingPlans.avatar}
+            {avatar}
           </Avatar>
         }
         action={
@@ -71,8 +71,8 @@ export default function AllPlansContainer({
             <StartNow />
           </IconButton>
         }
-        title={title}
-        // title="STRONGER"
+        //title={title}
+        //title="STRONGER"
         subheader="Gain strength"
       />
       <CardMedia
@@ -80,9 +80,12 @@ export default function AllPlansContainer({
         image="/images/stronger/stronger_main.jpg"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {TrainingPlans.content}
-        </Typography>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          component="p"
+          content={TrainingPlans.content}
+        ></Typography>
       </CardContent>
       <CardActions disableSpacing>
         <Rating rating={rating} />

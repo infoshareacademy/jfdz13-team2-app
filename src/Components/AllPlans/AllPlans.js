@@ -1,5 +1,4 @@
 import React from "react";
-import TrainingPlans from "../../Data/TrainingPlans.js";
 
 const AllPlans = () => {
   return (
