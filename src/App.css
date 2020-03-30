@@ -136,9 +136,22 @@
   opacity: 0.3;
 }
 
+.myProfile {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.myProfile__avatar {
+  background-color: #3f51b5;
+  height: 60px;
+  width: 60px;
+}
+
 .myProfile__container {
   display: flex;
   justify-content: space-between;
+  font-size: 1rem;
+  letter-spacing: 0.00938em;
 }
 
 .myProfile__bmiIcon {

@@ -7,7 +7,6 @@ import "../../App.css";
 const MyPlan = () => {
   return (
     <>
-      {/* <h1 className="myPlan__title"></h1> */}
       <Typography variant="h2" component="h2" className="myPlan__title">
         MY PLAN - SLIMMER - DAY 1
       </Typography>
