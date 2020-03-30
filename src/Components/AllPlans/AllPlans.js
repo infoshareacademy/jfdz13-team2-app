@@ -13,6 +13,7 @@ const AllPlans = () => {
             id={plans.id}
             avatar={plans.avatar}
             title={plans.title}
+            subheader={plans.subheader}
             goal={plans.goal}
             rating={plans.rating}
             content={plans.content}

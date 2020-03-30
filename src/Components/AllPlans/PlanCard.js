@@ -40,10 +40,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function AllPlansContainer({
+export default function PlanCard({
   id,
   avatar,
   title,
+  subheader,
   goal,
   rating,
   content,
@@ -63,7 +64,7 @@ export default function AllPlansContainer({
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            {avatar}
+            {TrainingPlans.avatar}
           </Avatar>
         }
         action={
@@ -71,9 +72,8 @@ export default function AllPlansContainer({
             <StartNow />
           </IconButton>
         }
-        //title={title}
-        //title="STRONGER"
-        subheader="Gain strength"
+        title={TrainingPlans.title}
+        subheader={TrainingPlans.subheader}
       />
       <CardMedia
         className={classes.media}
@@ -109,7 +109,7 @@ export default function AllPlansContainer({
         <CardContent>
           <Typography paragraph>WORKOUT ROUTINE:</Typography>
           <Typography paragraph>The warmup:</Typography>
-          <VStepper />
+          <VStepper step_1={step_1} step_2={step_2} step_3={step_3} />
         </CardContent>
       </Collapse>
     </Card>
