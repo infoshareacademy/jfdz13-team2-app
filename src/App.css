@@ -66,8 +66,8 @@
 
 .myPlan__title {
   text-align: center;
-  font-size: 40px;
-  color: #030b2f;
+  font-weight: bold;
+  background-color: rgb(223, 219, 219);
 }
 
 .myPlan__subtitle {
@@ -134,4 +134,13 @@
 
 .training__card__disabled {
   opacity: 0.3;
+}
+
+.myProfile__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.myProfile__bmiIcon {
+  color: #3f51b5;
 }
