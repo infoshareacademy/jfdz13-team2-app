@@ -1,5 +1,5 @@
 import React from "react";
-import { Doughnut, Bar, Line, Radar } from "react-chartjs-2";
+import { Doughnut, Bar } from "react-chartjs-2";
 
 const WhyMoveOn = () => {
   let data = {
