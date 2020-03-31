@@ -15,16 +15,15 @@ import Navigation from "./Components/Navigation/Nav";
 function App() {
   return (
     <BrowserRouter>
-      <div>
+      <div className="moveOn__container">
         <Navigation>
-        <hr />
-        <Switch>
-          <Route exact path="/" component={WhyMoveOn} />
-          <Route exact path="/all-plans" component={AllPlans} />
-          <Route exact path="/my-plan" component={MyPlan} />
-          <Route exact path="/calendar" component={Calendar} />
-          <Route exact path="/my-profile" component={MyProfile} />
-        </Switch>
+          <Switch>
+            <Route exact path="/" component={WhyMoveOn} />
+            <Route exact path="/all-plans" component={AllPlans} />
+            <Route exact path="/my-plan" component={MyPlan} />
+            <Route exact path="/calendar" component={Calendar} />
+            <Route exact path="/my-profile" component={MyProfile} />
+          </Switch>
         </Navigation>
       </div>
     </BrowserRouter>
