@@ -11,7 +11,7 @@ const Stronger = [
   },
   {
     id: 3,
-    name: "Bench incline row",
+    name: "Bench incline right",
     image: `${process.env.PUBLIC_URL}/images/stronger/3_Stronger.png`
   },
   {
@@ -21,17 +21,22 @@ const Stronger = [
   },
   {
     id: 5,
+    name: "Bench incline left",
+    image: `${process.env.PUBLIC_URL}/images/stronger/3_Stronger.png`
+  },
+  {
+    id: 6,
     name: "High bar back squats",
     image: `${process.env.PUBLIC_URL}/images/stronger/5_Stronger.png`
   },
 
   {
-    id: 6,
+    id: 7,
     name: "Curls with bar",
     image: `${process.env.PUBLIC_URL}/images/stronger/6_Stronger.png`
   },
   {
-    id: 7,
+    id: 8,
     name: "Walking lunge",
     image: `${process.env.PUBLIC_URL}/images/stronger/7_Stronger.png`
   }

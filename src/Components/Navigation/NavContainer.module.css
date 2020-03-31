@@ -27,3 +27,8 @@ div.content {
     margin-left: 0;
   }
 }
+
+.toolbarLogo {
+  height: 100px;
+  width: 100px;
+}
