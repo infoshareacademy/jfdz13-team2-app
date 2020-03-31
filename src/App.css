@@ -1,46 +1,5 @@
-.App {
-  text-align: center;
-  display: flex;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.footer {
-  background-color: red !important;
+.app__container {
+  background-color: rgb(235, 235, 235);
 }
 
 .classes__root {
@@ -49,7 +8,6 @@
 }
 
 .training__container {
-  background-color: rgb(223, 219, 219);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -67,7 +25,6 @@
 .myPlan__title {
   text-align: center;
   font-weight: bold;
-  background-color: rgb(223, 219, 219);
 }
 
 .myPlan__subtitle {
@@ -85,7 +42,7 @@
 .trainingCard__time {
   font-weight: bold;
   font-size: 15px;
-  border: 2px solid #fe466a;
+  border: 1px solid #fe466a;
   border-radius: 50%;
   padding: 3%;
 }
