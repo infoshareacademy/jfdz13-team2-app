@@ -3,7 +3,6 @@ import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import Avatar from "@material-ui/core/Avatar";
 import Tooltip from "@material-ui/core/Tooltip";
 import SentimentDissatisfiedIcon from "@material-ui/icons/SentimentDissatisfied";
 import SentimentSatisfiedAltIcon from "@material-ui/icons/SentimentSatisfiedAlt";
@@ -54,12 +53,11 @@ class MyProfileCard extends React.Component {
         <Card className="myProfile">
           <CardHeader
             avatar={
-              <Avatar
-                aria-label="recipe"
+              <img
                 className="myProfile__avatar"
                 src={this.props.user.avatarUrl}
                 alt="myPhoto"
-              ></Avatar>
+              />
             }
             title={this.props.user.name}
             subheader={`MoveOn since: ${this.props.user.firstTraining}`}

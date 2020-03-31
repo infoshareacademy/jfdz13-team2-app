@@ -5,21 +5,23 @@ export default function UserPersonalData() {
   const [state, setState] = React.useState({
     columns: [
       { title: "No.", field: "number", type: "numeric" },
-      { title: "Name", field: "name" },
-      { title: "Surname", field: "surname" },
+      { title: "Belly", field: "belly", type: "numeric" },
+      { title: "Hips", field: "hips", type: "numeric" },
+      { title: "Thigh", field: "thigh", type: "numeric" },
       {
-        title: "Birth Place",
-        field: "birthCity",
-        lookup: { 34: "İstanbul", 63: "Şanlıurfa" }
+        title: "Biceps",
+        field: "biceps",
+        type: "numeric"
       }
     ],
     data: [
-      { name: "Mehmet", surname: "Baran", number: 1, birthCity: 63 },
+      { belly: 100, hips: 105, thigh: 62, number: 1, biceps: 35 },
       {
-        name: "Zerya Betül",
-        surname: "Baran",
+        belly: 98,
+        hips: 104,
+        thigh: 61,
         number: 2,
-        birthCity: 34
+        biceps: 34
       }
     ]
   });
