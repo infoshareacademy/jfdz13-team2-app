@@ -6,6 +6,10 @@ import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
+import HomeIcon from "@material-ui/icons/Home";
+import EventIcon from "@material-ui/icons/Event";
+import FaceIcon from "@material-ui/icons/Face";
+import TimelineIcon from "@material-ui/icons/Timeline";
 import List from "@material-ui/core/List";
 import { Link as RouterLink } from "react-router-dom";
 import ListItem from "@material-ui/core/ListItem";
@@ -18,7 +22,6 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import TopBar from "./TopBar";
 
 const drawerWidth = 240;
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex"
@@ -85,22 +88,23 @@ const Navigation = props => {
   };
 
   const drawer = (
-    <div>
+    <div style={{ position: "relative" }}>
       <div className={classes.toolbar} />
+      <div>Maciej</div>
       <Divider />
       <List>
-        <ListItemLink to="/" primary="Why MOVE ON" icon={<InboxIcon />} />
+        <ListItemLink to="/" primary="Why MOVE ON" icon={<HomeIcon />} />
         <ListItemLink
           to="/all-plans"
           primary="All Plans"
-          icon={<InboxIcon />}
+          icon={<TimelineIcon />}
         />
-        <ListItemLink to="/my-plan" primary="My Plan" icon={<InboxIcon />} />
-        <ListItemLink to="/calendar" primary="Calendar" icon={<InboxIcon />} />
+        <ListItemLink to="/my-plan" primary="My Plan" icon={<TimelineIcon />} />
+        <ListItemLink to="/calendar" primary="Calendar" icon={<EventIcon />} />
         <ListItemLink
           to="/my-profile"
           primary="My Profile"
-          icon={<InboxIcon />}
+          icon={<FaceIcon />}
         />
       </List>
     </div>
