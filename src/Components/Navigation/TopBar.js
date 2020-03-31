@@ -3,7 +3,6 @@ import { fade, makeStyles } from "@material-ui/core/styles";
 
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -14,6 +13,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import logo from "./LogoWhite.svg";
+import "./Navigation.css";
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -165,9 +166,10 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <>
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
-            MoveOn App
-          </Typography>
+          <div className="toolbarLogo">
+            <img src={logo} alt="MoveOnLogo" />
+          </div>
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
