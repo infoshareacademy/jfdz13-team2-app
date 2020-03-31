@@ -1,18 +1,22 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import NavContainer from "./Components/Navigation/NavContainer";
 import AllPlans from "./Components/AllPlans/AllPlans";
+
 import Calendar from "./Components/Calendar/Calendar";
-import MyPlan from "./Components/MyPlan/SlimmerTraining";
+import MyPlan from "./Components/MyPlan/MyPlan";
 import MyProfile from "./Components/MyProfile/MyProfile";
 import WhyMoveOn from "./Components/WhyMoveOn/WhyMoveOn";
+
+import Navigation from "./Components/Navigation/Nav";
+
+// import ResponsiveDrawer from "./Components/Nav";
 
 function App() {
   return (
     <BrowserRouter>
       <div>
-        <NavContainer />
+        <Navigation>
         <hr />
         <Switch>
           <Route exact path="/" component={WhyMoveOn} />
@@ -21,6 +25,7 @@ function App() {
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/my-profile" component={MyProfile} />
         </Switch>
+        </Navigation>
       </div>
     </BrowserRouter>
   );
