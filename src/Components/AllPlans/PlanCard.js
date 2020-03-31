@@ -10,12 +10,11 @@ import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import ShareIcon from "@material-ui/icons/Share";
+
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import StartNow from "./StartNow.js";
 import VStepper from "./VStepper.js";
 import Rating from "./Rating";
-import TrainingPlans from "../../Data/TrainingPlans.js";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -44,13 +43,13 @@ export default function PlanCard({
   id,
   avatar,
   title,
-  subheader,
   goal,
   rating,
   content,
   step_1,
   step_2,
-  step_3
+  step_3,
+  image
 }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -60,58 +59,54 @@ export default function PlanCard({
   };
 
   return (
-    <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            {TrainingPlans.avatar}
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <StartNow />
-          </IconButton>
-        }
-        title={TrainingPlans.title}
-        subheader={TrainingPlans.subheader}
-      />
-      <CardMedia
-        className={classes.media}
-        image="/images/stronger/stronger_main.jpg"
-      />
-      <CardContent>
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          component="p"
-          content={TrainingPlans.content}
-        ></Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <Rating rating={rating} />
+    <>
+      <div className={"allPlansContainer"}>
+        <div className={"allCards"}>
+          <Card className={classes.root}>
+            <CardHeader
+              avatar={
+                <Avatar aria-label="recipe" className={classes.avatar}>
+                  {avatar}
+                </Avatar>
+              }
+              action={
+                <IconButton aria-label="settings">
+                  <StartNow />
+                </IconButton>
+              }
+              title={title}
+              subheader={goal}
+            />
+            <CardMedia className={classes.media} image={image} />
+            <CardContent>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {content}
+              </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+              <Rating rating={rating} />
 
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>WORKOUT ROUTINE:</Typography>
-          <Typography paragraph>The warmup:</Typography>
-          <VStepper step_1={step_1} step_2={step_2} step_3={step_3} />
-        </CardContent>
-      </Collapse>
-    </Card>
+              <IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+              <CardContent>
+                <Typography paragraph>WORKOUT ROUTINE:</Typography>
+                <Typography paragraph>The warmup:</Typography>
+                <VStepper step_1={step_1} step_2={step_2} step_3={step_3} />
+              </CardContent>
+            </Collapse>
+          </Card>
+        </div>
+      </div>
+    </>
   );
 }

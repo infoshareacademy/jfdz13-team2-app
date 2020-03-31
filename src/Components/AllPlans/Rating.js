@@ -9,11 +9,11 @@ const Rating = props => {
     <>
       <div className="star_allPlans">
         <div>
-          {props.rating >= 5 ? <StarBorderRoundedIcon /> : <StarRoundedIcon />}
-          {props.rating >= 4 ? <StarBorderRoundedIcon /> : <StarRoundedIcon />}
-          {props.rating >= 3 ? <StarBorderRoundedIcon /> : <StarRoundedIcon />}
-          {props.rating >= 2 ? <StarBorderRoundedIcon /> : <StarRoundedIcon />}
-          {props.rating >= 1 ? <StarBorderRoundedIcon /> : <StarRoundedIcon />}
+          {props.rating >= 1 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
+          {props.rating >= 2 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
+          {props.rating >= 3 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
+          {props.rating >= 4 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
+          {props.rating >= 5 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
         </div>
       </div>
     </>

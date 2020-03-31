@@ -1,5 +1,6 @@
 import React from "react";
 import TrainingPlans from "../../Data/TrainingPlans.js";
+import PlanCard from "./PlanCard";
 
 const AllPlans = () => {
   console.log("Training plans: ", TrainingPlans);
@@ -18,8 +19,9 @@ const AllPlans = () => {
             rating={plans.rating}
             content={plans.content}
             step_1={plans.step_1}
-            step_2={step_2}
-            step_3={step_3}
+            step_2={plans.step_2}
+            step_3={plans.step_3}
+            image={plans.image}
             key={plans.id} // dlatego wlasnie mapuje po id)
           />
         );
