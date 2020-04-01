@@ -1,5 +1,6 @@
 .app__container {
   background-color: rgb(235, 235, 235);
+  width: 100vw;
 }
 
 .classes__root {

@@ -31,38 +31,30 @@ class MyTrainingCard extends React.Component {
   };
 
   render() {
+    const { id, name, image } = this.props.card;
+
     return (
       <>
-        <Card key={this.props.card.id} className="classes__root">
-          <CardContent>
+        <Card key={id} className="classes__root">
+          <CardContent
+            className={this.state.time ? null : "training__card__disabled"}
+          >
             <Typography
               gutterBottom
               variant="h5"
               component="h2"
-              className={
-                this.state.time
-                  ? "trainingCard__header"
-                  : "trainingCard__header training__card__disabled"
-              }
+              className="trainingCard__header"
             >
-              {this.props.card.name}
+              {name}
             </Typography>
-          </CardContent>
-          <img
-            alt={this.props.card.name}
-            src={this.props.card.image}
-            className={
-              this.state.time
-                ? "trainingCard__image"
-                : "trainingCard__image training__card__disabled"
-            }
-          />
 
+            <img alt={name} src={image} className="trainingCard__image" />
+          </CardContent>
           <CardActions className="trainingCard__checkIcon">
             <MyPlanButton
               onClicked={this.handleTimer}
               content={this.state.time ? "START NOW" : "GOOD JOB!!!"}
-              disabled={this.state.exerciseIsStarted ? true : false}
+              disabled={this.state.exerciseIsStarted}
             />
             <div className="countdown">
               <div
