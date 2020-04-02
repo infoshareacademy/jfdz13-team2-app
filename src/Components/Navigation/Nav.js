@@ -89,8 +89,11 @@ const Navigation = props => {
 
   const drawer = (
     <div style={{ position: "relative" }}>
-      <div className={classes.toolbar} />
-      <div>Maciej</div>
+      <div
+        style={{ backgroundColor: "#080a1d", border: "none" }}
+        className={classes.toolbar}
+      />
+      {/* <div>Maciej</div> */}
       <Divider />
       <List>
         <ListItemLink to="/" primary="Why MOVE ON" icon={<HomeIcon />} />
@@ -113,7 +116,11 @@ const Navigation = props => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar
+        style={{ backgroundColor: "#080a1d" }}
+        position="fixed"
+        className={classes.appBar}
+      >
         <Toolbar>
           <IconButton
             color="inherit"

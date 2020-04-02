@@ -11,6 +11,8 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 
+import { Link } from "react-router-dom";
+
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import StartNow from "./StartNow.js";
 import VStepper from "./VStepper.js";
@@ -50,7 +52,8 @@ export default function PlanCard({
   step_1,
   step_2,
   step_3,
-  image
+  image,
+  jump
 }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -74,7 +77,7 @@ export default function PlanCard({
           }
           action={
             <IconButton aria-label="settings">
-              <StartNow />
+              <StartNow jump={jump} />
             </IconButton>
           }
           title={title}

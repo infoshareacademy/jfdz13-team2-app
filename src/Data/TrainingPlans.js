@@ -12,7 +12,8 @@ const TrainingPlans = [
       "Then for 8-9 minutes do some dynamic stretching. Full-body approach with upper body strength exercises maximizes your time and eases you in.",
     step_3:
       "Rest 30–60 second between sets and 1–2 minutes between each exercise. Then for 10 minutes do dynamic stretching.",
-    image: `${process.env.PUBLIC_URL}/images/slimmer/slimmer_main.jpg`
+    image: `${process.env.PUBLIC_URL}/images/slimmer/slimmer_main.jpg`,
+    jump: "/slimmer-plan"
   },
   {
     id: 2,
@@ -27,7 +28,8 @@ const TrainingPlans = [
       "Then for 10 minutes do some dynamic stretching. Approach with upper- and lower-body strength exercises. Complete 3 sets of each exercise.",
     step_3:
       "Treat this routine as a circuit: Complete 1 set of each exercise back to back, rest for 2 minute, then repeat 2 more times.",
-    image: `${process.env.PUBLIC_URL}/images/harder/harder_main.jpg`
+    image: `${process.env.PUBLIC_URL}/images/harder/harder_main.jpg`,
+    jump: "/harder-plan"
   },
   {
     id: 3,
@@ -42,7 +44,8 @@ const TrainingPlans = [
       "Rest 30–60 second between sets and 1–2 minutes between each exercise. Workout 4: Combination of cardio-based exercises and core-specific moves challenges your endurance.",
     step_3:
       "Treat this routine as a circuit: Complete 1 set of each exercise back to back, rest for 1 minute, then repeat 3 more times.",
-    image: `${process.env.PUBLIC_URL}images/stronger/stronger_main.jpg`
+    image: `${process.env.PUBLIC_URL}images/stronger/stronger_main.jpg`,
+    jump: "/stronger-plan"
   }
 ];
 
