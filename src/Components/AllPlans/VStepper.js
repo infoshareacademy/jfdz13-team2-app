@@ -63,7 +63,7 @@ export default function VStepper({ step_1, step_2, step_3 }) {
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((label, index) => (
           <Step key={label}>
-            <StepLabel>{label}</StepLabel>
+            <StepLabel>{label} </StepLabel>
             <StepContent>
               <Typography>
                 {getStepContent(index, step_1, step_2, step_3)}
@@ -79,6 +79,7 @@ export default function VStepper({ step_1, step_2, step_3 }) {
                   </Button>
                   <Button
                     variant="contained"
+                    style={{ backgroundColor: "#080a1d" }}
                     color="primary"
                     onClick={handleNext}
                     className={classes.button}

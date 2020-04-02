@@ -18,6 +18,8 @@ export default function StartNowButton() {
       <Button
         variant="contained"
         color="primary"
+        //style={{ backgroundColor: "#080a1d" }}
+        style={{ backgroundColor: "#fe466a" }}
         className={classes.button}
         endIcon={<DoubleArrowRoundedIcon />}
       >

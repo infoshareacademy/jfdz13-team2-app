@@ -48,8 +48,14 @@
   margin: 10px;
 }
 
+.classes__root_card {
+  width: 450px;
+  margin: 10px;
+  top: 0;
+}
+
 .training__container {
-  background-color: rgb(223, 219, 219);
+  background-color: white;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

@@ -1,12 +1,13 @@
 import React from "react";
 import TrainingPlans from "../../Data/TrainingPlans.js";
 import PlanCard from "./PlanCard";
+import "./../../App.css";
 
 const AllPlans = () => {
   console.log("Training plans: ", TrainingPlans);
 
   return (
-    <>
+    <div className={"training__container"}>
       {TrainingPlans.map(plans => {
         console.log("plans: ", plans);
         return (
@@ -26,7 +27,7 @@ const AllPlans = () => {
           />
         );
       })}
-    </>
+    </div>
   );
 };
 
