@@ -11,10 +11,6 @@ import Avatar from "@material-ui/core/Avatar";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
-
-import { Link } from "react-router-dom";
-
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import StartNow from "./StartNow.js";
 import VStepper from "./VStepper.js";
@@ -74,7 +70,7 @@ export default function PlanCard({
               className={classes.avatar}
               style={{ backgroundColor: "#080a1d" }}
             >
-              <DirectionsRunIcon />
+              {avatar}
             </Avatar>
           }
           action={
@@ -106,7 +102,7 @@ export default function PlanCard({
             aria-expanded={expanded}
             aria-label="show more"
           >
-            <Tooltip title="SHOW WORKOUT ROUTINE">
+            <Tooltip title="WORKOUT ROUTINE">
               <ExpandMoreIcon />
             </Tooltip>
           </IconButton>
