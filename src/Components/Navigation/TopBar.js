@@ -8,12 +8,13 @@ import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
-import AccountCircle from "@material-ui/icons/AccountCircle";
+import avatar from "./avatar.svg";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import logo from "./LogoWhite.svg";
 import "./Navigation.css";
+import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -153,9 +154,7 @@ export default function PrimarySearchAppBar() {
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
+        ></IconButton>
         <p>Profile</p>
       </MenuItem>
     </Menu>
@@ -184,7 +183,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <Avatar alt="Remy Sharp" src={avatar} />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
