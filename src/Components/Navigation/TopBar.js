@@ -15,7 +15,7 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import logo from "./LogoWhite.svg";
 import "./Navigation.css";
 import Avatar from "@material-ui/core/Avatar";
-import { Link as RouterLink } from "react-router-dom";
+import { NavLink as Link } from "react-router-dom";
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1
@@ -116,8 +116,14 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link
+          to="/my-profile"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          Profile
+        </Link>
+      </MenuItem>
     </Menu>
   );
 
