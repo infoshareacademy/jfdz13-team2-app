@@ -10,6 +10,7 @@ import Navigation from "./Components/Navigation/Nav";
 import SlimmerPlan from "./Components/MyPlan/SlimmerPlan";
 import HarderPlan from "./Components/MyPlan/HarderPlan";
 import StrongerPlan from "./Components/MyPlan/StrongerPlan";
+import Footer from "./Components/Footer";
 function App() {
   return (
     <div className="app__container">
@@ -29,6 +30,7 @@ function App() {
           </Navigation>
         </div>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }
