@@ -127,3 +127,7 @@
 .planCard__image {
   height: 300px;
 }
+
+.footerMobile {
+  margin-left: "30vw";
+}

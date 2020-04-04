@@ -7,12 +7,13 @@ import RestoreIcon from "@material-ui/icons/Restore";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import "./Navigation/Navigation.css";
+import "../App.css";
 //Navigation style
 const useStyles = makeStyles({
   root: {
-    width: 500,
-    background: "#01091C"
-  }
+    width: "60%",
+    background: "#01091C",
+  },
 });
 
 export default function LabelBottomNavigation() {
@@ -25,6 +26,7 @@ export default function LabelBottomNavigation() {
 
   return (
     <div
+      className="footerMoblie"
       style={{ backgroundColor: "#080a1d", alignItems: "center" }}
       position="fixed"
       className={classes.appBar}
