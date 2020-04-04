@@ -30,7 +30,7 @@ const WhyMoveOn = () => {
     datasets: [
       {
         data: [40, 60],
-        backgroundColor: ["rgba(255, 99, 132, 0.8)", "rgba(255, 159, 64, 0.8)"]
+        backgroundColor: ["rgba(8, 10, 21, 0.6)", "rgba(254, 70, 106, 0.6)"]
       }
     ],
 
@@ -45,7 +45,7 @@ const WhyMoveOn = () => {
   return (
     <div>
       <div className={"doughnutChart"}>
-        <Doughnut data={usersNumber} />
+        <Doughnut data={usersNumber} options={usersNumber.options} />
       </div>
 
       <div className={"charts"}>
