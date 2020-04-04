@@ -5,8 +5,8 @@ export default function UserPersonalData() {
   const [state, setState] = React.useState({
     columns: [
       { title: "No.", field: "number", type: "numeric" },
+      { title: "Date", field: "date", type: "numeric" },
       { title: "Belly", field: "belly", type: "numeric" },
-      { title: "Hips", field: "hips", type: "numeric" },
       { title: "Thigh", field: "thigh", type: "numeric" },
       {
         title: "Biceps",
@@ -15,13 +15,13 @@ export default function UserPersonalData() {
       }
     ],
     data: [
-      { belly: 100, hips: 105, thigh: 62, number: 1, biceps: 35 },
+      { belly: 100, thigh: 62, number: 1, biceps: 35, date: "31-03-2020" },
       {
         belly: 98,
-        hips: 104,
         thigh: 61,
         number: 2,
-        biceps: 34
+        biceps: 34,
+        date: "04-04-2020"
       }
     ]
   });
