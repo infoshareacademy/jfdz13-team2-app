@@ -4,7 +4,7 @@ import MyTrainingCard from "./MyTrainingCard";
 import Heading from "../Heading";
 import "../../App.css";
 
-const MyPlan = () => {
+const SlimmerPlan = () => {
   return (
     <>
       <Heading content={"MY PLAN - SLIMMER - DAY 1"} />
@@ -17,4 +17,4 @@ const MyPlan = () => {
   );
 };
 
-export default MyPlan;
+export default SlimmerPlan;

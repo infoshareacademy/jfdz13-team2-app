@@ -11,7 +11,7 @@ const Harder = [
   },
   {
     id: 3,
-    name: "Concentration curls",
+    name: "Concentration curls left",
     image: `${process.env.PUBLIC_URL}/images/harder/3_Harder_M.jpg`
   },
   {
@@ -21,17 +21,22 @@ const Harder = [
   },
   {
     id: 5,
+    name: "Concentration curls right",
+    image: `${process.env.PUBLIC_URL}/images/harder/3_Harder_M.jpg`
+  },
+  {
+    id: 6,
     name: "Flipping tyre ",
     image: `${process.env.PUBLIC_URL}/images/harder/5_Harder_M.jpg`
   },
 
   {
-    id: 6,
+    id: 7,
     name: "Plank row",
     image: `${process.env.PUBLIC_URL}/images/harder/6_Harder_M.jpg`
   },
   {
-    id: 7,
+    id: 8,
     name: "Bench Press",
     image: `${process.env.PUBLIC_URL}/images/harder/7_Harder_M.jpg`
   }

@@ -9,11 +9,31 @@ const Rating = props => {
     <>
       <div className="star_allPlans">
         <div>
-          {props.rating >= 1 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
-          {props.rating >= 2 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
-          {props.rating >= 3 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
-          {props.rating >= 4 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
-          {props.rating >= 5 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
+          {props.rating >= 1 ? (
+            <StarRoundedIcon style={{ color: "#080a1d" }} />
+          ) : (
+            <StarBorderRoundedIcon style={{ color: "#080a1d" }} />
+          )}
+          {props.rating >= 2 ? (
+            <StarRoundedIcon style={{ color: "#080a1d" }} />
+          ) : (
+            <StarBorderRoundedIcon style={{ color: "#080a1d" }} />
+          )}
+          {props.rating >= 3 ? (
+            <StarRoundedIcon style={{ color: "#080a1d" }} />
+          ) : (
+            <StarBorderRoundedIcon style={{ color: "#080a1d" }} />
+          )}
+          {props.rating >= 4 ? (
+            <StarRoundedIcon style={{ color: "#080a1d" }} />
+          ) : (
+            <StarBorderRoundedIcon style={{ color: "#080a1d" }} />
+          )}
+          {props.rating >= 5 ? (
+            <StarRoundedIcon style={{ color: "#080a1d" }} />
+          ) : (
+            <StarBorderRoundedIcon style={{ color: "#080a1d" }} />
+          )}
         </div>
       </div>
     </>

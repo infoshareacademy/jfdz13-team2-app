@@ -23,7 +23,7 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ backgroundColor: "#01091C" }}>
+      <AppBar position="static" style={{ backgroundColor: "#080a1d" }}>
         <Toolbar>
           <img
             src={`${process.env.PUBLIC_URL}/images/LogoWhite.svg`}

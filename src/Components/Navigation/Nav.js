@@ -5,7 +5,6 @@ import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
 import HomeIcon from "@material-ui/icons/Home";
 import EventIcon from "@material-ui/icons/Event";
 import FaceIcon from "@material-ui/icons/Face";
@@ -89,8 +88,11 @@ const Navigation = props => {
 
   const drawer = (
     <div style={{ position: "relative" }}>
-      <div className={classes.toolbar} />
-      <div>Maciej</div>
+      <div
+        style={{ backgroundColor: "#080a1d", border: "none" }}
+        className={classes.toolbar}
+      />
+      {/* <div>Maciej</div> */}
       <Divider />
       <List>
         <ListItemLink to="/" primary="Why MOVE ON" icon={<HomeIcon />} />
@@ -113,7 +115,11 @@ const Navigation = props => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar
+        style={{ backgroundColor: "#080a1d" }}
+        position="fixed"
+        className={classes.appBar}
+      >
         <Toolbar>
           <IconButton
             color="inherit"

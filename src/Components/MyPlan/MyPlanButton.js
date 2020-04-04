@@ -17,6 +17,7 @@ const MyPlanButton = ({ onClicked, content, disabled }) => {
       {/* This Button uses a Font Icon, see the installation instructions in the Icon component docs. */}
       <Button
         variant="contained"
+        style={{ backgroundColor: "#6f8485" }}
         color="primary"
         className={classes.button}
         endIcon={<DoubleArrowRoundedIcon />}

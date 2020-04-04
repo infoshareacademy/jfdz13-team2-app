@@ -24,15 +24,19 @@ const Slimmer = [
     name: "Sprint",
     image: `${process.env.PUBLIC_URL}/images/slimmer/5_Slimmer.jpg`
   },
-
   {
     id: 6,
+    name: "Kneeling Ext. left leg",
+    image: `${process.env.PUBLIC_URL}/images/slimmer/7_Slimmer.jpg`
+  },
+  {
+    id: 7,
     name: "Twists and turns",
     image: `${process.env.PUBLIC_URL}/images/slimmer/6_Slimmer.jpg`
   },
   {
-    id: 7,
-    name: "Kneeling Extension",
+    id: 8,
+    name: "Kneeling Ext. right leg",
     image: `${process.env.PUBLIC_URL}/images/slimmer/7_Slimmer.jpg`
   }
 ];
