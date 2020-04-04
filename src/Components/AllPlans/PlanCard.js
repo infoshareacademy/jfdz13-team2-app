@@ -11,8 +11,6 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 
-import { Link } from "react-router-dom";
-
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import StartNow from "./StartNow.js";
 import VStepper from "./VStepper.js";
@@ -83,7 +81,7 @@ export default function PlanCard({
           title={title}
           subheader={goal}
         />
-        <CardMedia className={classes.media} image={image} />
+        <img className={"planCard__image"} src={image} alt={id} />
         <CardContent>
           <Typography
             variant="body2"
