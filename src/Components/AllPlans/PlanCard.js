@@ -64,7 +64,7 @@ export default function PlanCard({
 
   return (
     <>
-      <Card className="classes__root_card">
+      <Card style={{ alignSelf: "flex-start" }} className="classes__root_card">
         <CardHeader
           avatar={
             <Avatar
