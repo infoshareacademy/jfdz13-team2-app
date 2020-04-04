@@ -1,13 +1,9 @@
-/* .charts {
-    display: flex;
-} */
-
 .doughnutChart {
   margin: 0 auto;
 }
 .barChart {
   margin: 0 auto;
-  /* width: 50%; */
+  width: 50%;
   padding: 2%;
 }
 @media only screen and (min-width: 800px) {
@@ -17,7 +13,6 @@
 
   .barChart {
     margin: 0 auto;
-    /* width: 50%; */
     padding: 2%;
   }
 }

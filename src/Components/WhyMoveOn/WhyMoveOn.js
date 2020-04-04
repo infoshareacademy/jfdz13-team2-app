@@ -1,32 +1,46 @@
 import React from "react";
 import { Doughnut, Bar } from "react-chartjs-2";
 import "./WhyMoveOn.css";
+import Heading from "./../Heading";
 
 const WhyMoveOn = () => {
-  let data = {
+  let mostPopularActivities = {
     datasets: [
       {
         data: [18, 3, 10, 5, 9],
         backgroundColor: [
           "rgba(255, 99, 132, 0.8)",
-          "rgba(54, 162, 235, 0.8)",
-          "rgba(255, 206, 86, 0.8)",
-          "rgba(255, 206, 86, 0.8)",
-          "rgba(255, 159, 64, 0.8)"
+          "rgba(8, 10, 21, 0.6)",
+          "rgba(63, 81, 181, 0.6)",
+          "rgba(111, 132, 133, 0.6)"
         ]
       }
     ],
 
-    labels: ["Red", "Yellow", "Blue", "Green", "Brown"],
+    labels: ["Running", "Cycling", "Sprint", "Jump rope"],
     options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              min: 0
+            }
+          }
+        ]
+      },
+
+      legend: {
+        display: false
+      },
+
       title: {
         display: true,
-        text: "Custom Chart Title"
+        text: "Most popular activities"
       }
     }
   };
 
-  let usersNumber = {
+  let usersGender = {
     datasets: [
       {
         data: [40, 60],
@@ -34,27 +48,69 @@ const WhyMoveOn = () => {
       }
     ],
 
-    labels: ["Kobiety", "Mężczyźni"],
+    labels: ["Women", "Men"],
     options: {
+      fontSize: 20,
       title: {
         display: true,
-        text: "Custom Chart Title"
+        text: "Our users gender"
       }
     }
   };
+
+  let mostPopularPlans = {
+    datasets: [
+      {
+        label: false,
+        data: [50, 30, 20],
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.8)",
+          "rgba(8, 10, 21, 0.6)",
+          "rgba(63, 81, 181, 0.6)"
+        ]
+      }
+    ],
+
+    labels: ["Slimmer", "Harder", "Stronger"],
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              min: 0
+            }
+          }
+        ]
+      },
+
+      legend: {
+        display: false
+      },
+
+      title: {
+        display: true,
+        text: "Our most popular plans (in %)"
+      }
+    }
+  };
+
   return (
     <div>
+      <Heading content="WHY MOVE ON" />
       <div className={"doughnutChart"}>
-        <Doughnut data={usersNumber} options={usersNumber.options} />
+        <Doughnut data={usersGender} options={usersGender.options} />
       </div>
 
       <div className={"charts"}>
         <div className={"barChart"}>
-          <Bar data={data} />
+          <Bar data={mostPopularPlans} options={mostPopularPlans.options} />
         </div>
 
         <div className={"barChart"}>
-          <Bar data={data} />
+          <Bar
+            data={mostPopularActivities}
+            options={mostPopularActivities.options}
+          />
         </div>
       </div>
     </div>
