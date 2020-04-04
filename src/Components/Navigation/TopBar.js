@@ -9,13 +9,13 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
 import avatar from "./avatar.svg";
-import MailIcon from "@material-ui/icons/Mail";
+
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import logo from "./LogoWhite.svg";
 import "./Navigation.css";
 import Avatar from "@material-ui/core/Avatar";
-
+import { NavLink as Link } from "react-router-dom";
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1
@@ -116,8 +116,14 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link
+          to="/my-profile"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          Profile
+        </Link>
+      </MenuItem>
     </Menu>
   );
 
@@ -133,14 +139,6 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
             <NotificationsIcon />
@@ -155,7 +153,6 @@ export default function PrimarySearchAppBar() {
           aria-haspopup="true"
           color="inherit"
         ></IconButton>
-        <p>Profile</p>
       </MenuItem>
     </Menu>
   );
