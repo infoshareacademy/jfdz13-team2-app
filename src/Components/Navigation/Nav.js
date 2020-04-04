@@ -22,39 +22,39 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import TopBar from "./TopBar";
 
 const drawerWidth = 240;
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
+    display: "flex"
   },
   drawer: {
     [theme.breakpoints.up("sm")]: {
       width: drawerWidth,
-      flexShrink: 0,
-    },
+      flexShrink: 0
+    }
   },
   appBar: {
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
+      marginLeft: drawerWidth
+    }
   },
   menuButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
+      display: "none"
+    }
   },
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
-    width: drawerWidth,
+    width: drawerWidth
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
-  },
+    padding: theme.spacing(3)
+  }
 }));
 
-const Navigation = (props) => {
+const Navigation = props => {
   const { container } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -66,7 +66,7 @@ const Navigation = (props) => {
 
   const closeDrawer = () => setMobileOpen(false);
 
-  const ListItemLink = (props) => {
+  const ListItemLink = props => {
     const { icon, primary, to } = props;
 
     const renderLink = React.useMemo(
@@ -102,7 +102,11 @@ const Navigation = (props) => {
           primary="All Plans"
           icon={<TimelineIcon />}
         />
-        <ListItemLink to="/my-plan" primary="My Plan" icon={<DirectionsRunIcon  />} />
+        <ListItemLink
+          to="/my-plan"
+          primary="My Plan"
+          icon={<DirectionsRunIcon />}
+        />
         <ListItemLink to="/calendar" primary="Calendar" icon={<EventIcon />} />
         <ListItemLink
           to="/my-profile"
@@ -144,10 +148,10 @@ const Navigation = (props) => {
             open={mobileOpen}
             onClose={handleDrawerToggle}
             classes={{
-              paper: classes.drawerPaper,
+              paper: classes.drawerPaper
             }}
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true // Better open performance on mobile.
             }}
           >
             {drawer}
@@ -156,7 +160,7 @@ const Navigation = (props) => {
         <Hidden xsDown implementation="css">
           <Drawer
             classes={{
-              paper: classes.drawerPaper,
+              paper: classes.drawerPaper
             }}
             variant="permanent"
             open={mobileOpen}

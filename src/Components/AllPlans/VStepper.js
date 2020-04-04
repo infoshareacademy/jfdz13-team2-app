@@ -1,5 +1,9 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  makeStyles
+  // ThemeProvider,
+  // createMuiTheme,
+} from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -7,6 +11,23 @@ import StepContent from "@material-ui/core/StepContent";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: {
+//       light: "#2f3244",
+//       main: "#080a1d",
+//       dark: "#000000",
+//       contrastText: "#ffffff",
+//     },
+//     secondary: {
+//       light: "#ff7d98",
+//       main: "#fe466a",
+//       dark: "#c50040",
+//       contrastText: "#000000",
+//     },
+//   },
+// });
 
 const useStyles = makeStyles(theme => ({
   root: {
