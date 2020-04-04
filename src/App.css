@@ -123,3 +123,7 @@
 .myProfile__bmiIcon {
   color: #fe466a;
 }
+
+.planCard__image {
+  height: 300px;
+}

@@ -1,7 +1,7 @@
 const TrainingPlans = [
   {
     id: 1,
-    avatar: "S",
+    avatar: "SL",
     title: "SLIMMER",
     goal: "Weight loss",
     rating: "3",
@@ -17,7 +17,7 @@ const TrainingPlans = [
   },
   {
     id: 2,
-    avatar: "H",
+    avatar: "HA",
     title: "HARDER",
     goal: "Muscle building",
     rating: "5",
@@ -33,7 +33,7 @@ const TrainingPlans = [
   },
   {
     id: 3,
-    avatar: "S",
+    avatar: "ST",
     title: "STRONGER",
     goal: "Gain strength",
     rating: "4",

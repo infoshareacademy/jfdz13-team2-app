@@ -3,16 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
+import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-
-import { Link } from "react-router-dom";
-
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import StartNow from "./StartNow.js";
 import VStepper from "./VStepper.js";
@@ -64,7 +61,7 @@ export default function PlanCard({
 
   return (
     <>
-      <Card className="classes__root_card">
+      <Card style={{ alignSelf: "flex-start" }} className="classes__root_card">
         <CardHeader
           avatar={
             <Avatar
@@ -83,7 +80,7 @@ export default function PlanCard({
           title={title}
           subheader={goal}
         />
-        <CardMedia className={classes.media} image={image} />
+        <img className={"planCard__image"} src={image} alt={id} />
         <CardContent>
           <Typography
             variant="body2"
@@ -104,7 +101,9 @@ export default function PlanCard({
             aria-expanded={expanded}
             aria-label="show more"
           >
-            <ExpandMoreIcon />
+            <Tooltip title="WORKOUT ROUTINE">
+              <ExpandMoreIcon />
+            </Tooltip>
           </IconButton>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>

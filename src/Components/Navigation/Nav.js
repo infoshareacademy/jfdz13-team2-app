@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import HomeIcon from "@material-ui/icons/Home";
 import EventIcon from "@material-ui/icons/Event";
 import FaceIcon from "@material-ui/icons/Face";
+import DirectionsRunIcon from "@material-ui/icons/DirectionsRun";
 import TimelineIcon from "@material-ui/icons/Timeline";
 import List from "@material-ui/core/List";
 import { Link as RouterLink } from "react-router-dom";
@@ -101,7 +102,11 @@ const Navigation = props => {
           primary="All Plans"
           icon={<TimelineIcon />}
         />
-        <ListItemLink to="/my-plan" primary="My Plan" icon={<TimelineIcon />} />
+        <ListItemLink
+          to="/my-plan"
+          primary="My Plan"
+          icon={<DirectionsRunIcon />}
+        />
         <ListItemLink to="/calendar" primary="Calendar" icon={<EventIcon />} />
         <ListItemLink
           to="/my-profile"
