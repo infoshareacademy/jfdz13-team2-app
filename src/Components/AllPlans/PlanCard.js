@@ -8,13 +8,14 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
+import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import StartNow from "./StartNow.js";
 import VStepper from "./VStepper.js";
 import Rating from "./Rating";
+import "./../../App.css";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -49,7 +50,8 @@ export default function PlanCard({
   step_1,
   step_2,
   step_3,
-  image
+  image,
+  jump
 }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -60,53 +62,63 @@ export default function PlanCard({
 
   return (
     <>
-      <div className={"allPlansContainer"}>
-        <div className={"allCards"}>
-          <Card className={classes.root}>
-            <CardHeader
-              avatar={
-                <Avatar aria-label="recipe" className={classes.avatar}>
-                  {avatar}
-                </Avatar>
-              }
-              action={
-                <IconButton aria-label="settings">
-                  <StartNow />
-                </IconButton>
-              }
-              title={title}
-              subheader={goal}
-            />
-            <CardMedia className={classes.media} image={image} />
-            <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
-                {content}
-              </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-              <Rating rating={rating} />
+      <Card style={{ alignSelf: "flex-start" }} className="classes__root_card">
+        <CardHeader
+          avatar={
+            <Avatar
+              aria-label="recipe"
+              className={classes.avatar}
+              style={{ backgroundColor: "#080a1d" }}
+            >
+              {avatar}
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <StartNow jump={jump} />
+            </IconButton>
+          }
+          title={title}
+          subheader={goal}
+        />
+        <CardMedia className={classes.media} image={image} />
+        <CardContent>
+          <Typography
+            variant="body2"
+            style={{ color: "#080a1d" }}
+            component="p"
+          >
+            {content}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <Rating rating={rating} />
 
-              <IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: expanded
-                })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <ExpandMoreIcon />
-              </IconButton>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <CardContent>
-                <Typography paragraph>WORKOUT ROUTINE:</Typography>
-                <Typography paragraph>The warmup:</Typography>
-                <VStepper step_1={step_1} step_2={step_2} step_3={step_3} />
-              </CardContent>
-            </Collapse>
-          </Card>
-        </div>
-      </div>
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <Tooltip title="WORKOUT ROUTINE">
+              <ExpandMoreIcon />
+            </Tooltip>
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography style={{ color: "#080a1d" }} paragraph>
+              WORKOUT ROUTINE:
+            </Typography>
+            <Typography style={{ color: "#080a1d" }} paragraph>
+              The warmup:
+            </Typography>
+            <VStepper step_1={step_1} step_2={step_2} step_3={step_3} />
+          </CardContent>
+        </Collapse>
+      </Card>
     </>
   );
 }

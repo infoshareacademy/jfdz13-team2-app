@@ -1,6 +1,7 @@
 import React from "react";
 import StarBorderRoundedIcon from "@material-ui/icons/StarBorderRounded";
 import StarRoundedIcon from "@material-ui/icons/StarRounded";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const Rating = props => {
   console.log("props ", props);
@@ -8,13 +9,35 @@ const Rating = props => {
   return (
     <>
       <div className="star_allPlans">
-        <div>
-          {props.rating >= 1 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
-          {props.rating >= 2 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
-          {props.rating >= 3 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
-          {props.rating >= 4 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
-          {props.rating >= 5 ? <StarRoundedIcon /> : <StarBorderRoundedIcon />}
-        </div>
+        <Tooltip title="LEVEL">
+          <div>
+            {props.rating >= 1 ? (
+              <StarRoundedIcon style={{ color: "#080a1d" }} />
+            ) : (
+              <StarBorderRoundedIcon style={{ color: "#080a1d" }} />
+            )}
+            {props.rating >= 2 ? (
+              <StarRoundedIcon style={{ color: "#080a1d" }} />
+            ) : (
+              <StarBorderRoundedIcon style={{ color: "#080a1d" }} />
+            )}
+            {props.rating >= 3 ? (
+              <StarRoundedIcon style={{ color: "#080a1d" }} />
+            ) : (
+              <StarBorderRoundedIcon style={{ color: "#080a1d" }} />
+            )}
+            {props.rating >= 4 ? (
+              <StarRoundedIcon style={{ color: "#080a1d" }} />
+            ) : (
+              <StarBorderRoundedIcon style={{ color: "#080a1d" }} />
+            )}
+            {props.rating >= 5 ? (
+              <StarRoundedIcon style={{ color: "#080a1d" }} />
+            ) : (
+              <StarBorderRoundedIcon style={{ color: "#080a1d" }} />
+            )}
+          </div>
+        </Tooltip>
       </div>
     </>
   );

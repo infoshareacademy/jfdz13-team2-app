@@ -1,15 +1,15 @@
 import React from "react";
-import Slimmer from "../../Data/Slimmer";
+import Harder from "../../Data/Harder";
 import MyTrainingCard from "./MyTrainingCard";
-import Heading from "../Heading";
 import "../../App.css";
+import Heading from "../Heading";
 
-const MyPlan = () => {
+const HarderPlan = () => {
   return (
     <>
-      <Heading content={"MY PLAN - SLIMMER - DAY 1"} />
+      <Heading content={"MY PLAN - HARDER - DAY 1"} />
       <div className="training__container">
-        {Slimmer.map(card => (
+        {Harder.map(card => (
           <MyTrainingCard key={card.id} card={card} />
         ))}
       </div>
@@ -17,4 +17,4 @@ const MyPlan = () => {
   );
 };
 
-export default MyPlan;
+export default HarderPlan;
