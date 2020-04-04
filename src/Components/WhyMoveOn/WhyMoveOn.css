@@ -3,10 +3,10 @@
 }
 .barChart {
   margin: 0 auto;
-  width: 50%;
+  width: 80%;
   padding: 2%;
 }
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1000px) {
   .charts {
     display: flex;
   }
