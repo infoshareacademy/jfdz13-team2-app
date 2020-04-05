@@ -276,6 +276,7 @@ class AppointmentFormContainerBasic extends React.PureComponent {
 
     return (
       <AppointmentForm.Overlay
+        syles={{}}
         visible={visible}
         target={target}
         fullSize
