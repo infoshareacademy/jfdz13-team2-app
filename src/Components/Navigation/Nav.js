@@ -109,6 +109,7 @@ const Navigation = props => {
         />
         <ListItemLink to="/calendar" primary="Calendar" icon={<EventIcon />} />
         <ListItemLink
+          isAdmin // Dodanie propsa isAdmin true
           to="/my-profile"
           primary="My Profile"
           icon={<FaceIcon />}
