@@ -1,0 +1,42 @@
+[{
+    "id": 1,
+    "name": "Plank to pike",
+    "image": "/images/harder/1_Harder_M.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Running",
+    "image": "/images/harder/2_Harder_M.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Concentration curls left",
+    "image": "/images/harder/3_Harder_M.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Standing biceps curl",
+    "image": "/images/harder/4_Harder_M.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Concentration curls right",
+    "image": "/images/harder/3_Harder_M.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Flipping tyre ",
+    "image": "/images/harder/5_Harder_M.jpg"
+  },
+
+  {
+    "id": 7,
+    "name": "Plank row",
+    "image": "/images/harder/6_Harder_M.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Bench Press",
+    "image": "/images/harder/7_Harder_M.jpg"
+  }
+]

@@ -1,20 +1,33 @@
 import React from "react";
-import Slimmer from "../../Data/Slimmer";
 import MyTrainingCard from "./MyTrainingCard";
 import Heading from "../Heading";
 import "../../App.css";
 
-const SlimmerPlan = () => {
-  return (
-    <>
-      <Heading content={"MY PLAN - SLIMMER - DAY 1"} />
-      <div className="training__container">
-        {Slimmer.map(card => (
-          <MyTrainingCard key={card.id} card={card} />
-        ))}
-      </div>
-    </>
-  );
-};
+class SlimmerPlan extends React.Component {
+  state = {
+    data: []
+  };
+
+  componentDidMount() {
+    fetch("Slimmer.json")
+      .then(response => response.json())
+      .then(data => this.setState({ data }));
+  }
+
+  render() {
+    const { data } = this.state;
+
+    return (
+      <>
+        <Heading content={"MY PLAN - SLIMMER - DAY 1"} />
+        <div className="training__container">
+          {data.map(card => (
+            <MyTrainingCard key={card.id} card={card} />
+          ))}
+        </div>
+      </>
+    );
+  }
+}
 
 export default SlimmerPlan;

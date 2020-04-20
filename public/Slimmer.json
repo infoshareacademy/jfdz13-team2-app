@@ -1,0 +1,41 @@
+[{
+    "id": 1,
+    "name": "Running",
+    "image": "/images/slimmer/1_Slimmer.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Jump rope",
+    "image": "/images/slimmer/2_Slimmer.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Cycling",
+    "image": "/images/slimmer/3_Slimmer.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Push-ups",
+    "image": "/images/slimmer/4_Slimmer.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Sprint",
+    "image": "/images/slimmer/5_Slimmer.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Kneeling Ext. left leg",
+    "image": "/images/slimmer/7_Slimmer.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Twists and turns",
+    "image": "/images/slimmer/6_Slimmer.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Kneeling Ext. right leg",
+    "image": "/images/slimmer/7_Slimmer.jpg"
+  }
+]

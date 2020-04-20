@@ -1,0 +1,42 @@
+[{
+    "id": 1,
+    "name": "Weight swing",
+    "image": "/images/stronger/1_Stronger.png"
+  },
+  {
+    "id": 2,
+    "name": "Sitting dumbbell press",
+    "image": "/images/stronger/2_Stronger.png"
+  },
+  {
+    "id": 3,
+    "name": "Bench incline right",
+    "image": "/images/stronger/3_Stronger.png"
+  },
+  {
+    "id": 4,
+    "name": "Bench Press",
+    "image": "/images/stronger/4_Stronger.png"
+  },
+  {
+    "id": 5,
+    "name": "Bench incline left",
+    "image": "/images/stronger/3_Stronger.png"
+  },
+  {
+    "id": 6,
+    "name": "High bar back squats",
+    "image": "/images/stronger/5_Stronger.png"
+  },
+
+  {
+    "id": 7,
+    "name": "Curls with bar",
+    "image": "/images/stronger/6_Stronger.png"
+  },
+  {
+    "id": 8,
+    "name": "Walking lunge",
+    "image": "/images/stronger/7_Stronger.png"
+  }
+]
