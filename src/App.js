@@ -10,6 +10,8 @@ import Navigation from "./Components/Navigation/Nav";
 import SlimmerPlan from "./Components/MyPlan/SlimmerPlan";
 import HarderPlan from "./Components/MyPlan/HarderPlan";
 import StrongerPlan from "./Components/MyPlan/StrongerPlan";
+import SignIn from "./Components/Aplication/SignIn";
+import SignUp from "./Components/Aplication/SignUp";
 function App() {
   return (
     <div className="app__container">
@@ -25,6 +27,8 @@ function App() {
               <Route exact path="/slimmer-plan" component={SlimmerPlan} />
               <Route exact path="/harder-plan" component={HarderPlan} />
               <Route exact path="/stronger-plan" component={StrongerPlan} />
+              <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/signup" component={SignUp} />
             </Switch>
           </Navigation>
         </div>

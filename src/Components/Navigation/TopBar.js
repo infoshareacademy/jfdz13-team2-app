@@ -1,4 +1,5 @@
 import React from "react";
+
 import { fade, makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -166,10 +167,22 @@ export default function PrimarySearchAppBar() {
           <div className={classes.grow} />
           <div className="topBarContainer">
             <div className="topBarButton">
-              <ButtonLog>Sign in</ButtonLog>
+              <ButtonLog
+                component={Link}
+                to="/Components/Aplication/SignIn"
+                value="signin"
+              >
+                Sing in
+              </ButtonLog>
             </div>
             <div className="topBarButton">
-              <ButtonLog>Sign up</ButtonLog>
+              <ButtonLog
+                component={Link}
+                to="/Components/Aplication/SignUp"
+                value="signup"
+              >
+                Sign up
+              </ButtonLog>
             </div>
           </div>
           <div className={classes.sectionDesktop}>
