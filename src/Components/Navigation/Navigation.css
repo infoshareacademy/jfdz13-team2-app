@@ -10,7 +10,7 @@
 
 .topBarButton {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin: 5px;
 }

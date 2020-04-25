@@ -162,6 +162,8 @@ export default function PrimarySearchAppBar() {
           <div className="toolbarLogo">
             <img src={logo} alt="MoveOnLogo" />
           </div>
+
+          <div className={classes.grow} />
           <div className="topBarContainer">
             <div className="topBarButton">
               <ButtonLog>Sign in</ButtonLog>
@@ -170,8 +172,6 @@ export default function PrimarySearchAppBar() {
               <ButtonLog>Sign up</ButtonLog>
             </div>
           </div>
-
-          <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 17 new notifications" color="inherit">
               <Badge badgeContent={17} color="secondary">
