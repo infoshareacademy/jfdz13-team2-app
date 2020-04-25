@@ -1,21 +1,19 @@
 import React from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
-
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-
 import avatar from "./avatar.svg";
-
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import logo from "./LogoWhite.svg";
 import "./Navigation.css";
 import Avatar from "@material-ui/core/Avatar";
 import { NavLink as Link } from "react-router-dom";
+import ButtonLog from "./../../Components/Aplication/ButtonLog";
+
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1
@@ -163,6 +161,14 @@ export default function PrimarySearchAppBar() {
         <Toolbar>
           <div className="toolbarLogo">
             <img src={logo} alt="MoveOnLogo" />
+          </div>
+          <div className="topBarContainer">
+            <div className="topBarButton">
+              <ButtonLog>Sign in</ButtonLog>
+            </div>
+            <div className="topBarButton">
+              <ButtonLog>Sign up</ButtonLog>
+            </div>
           </div>
 
           <div className={classes.grow} />
