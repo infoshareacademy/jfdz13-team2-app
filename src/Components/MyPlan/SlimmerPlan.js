@@ -9,7 +9,7 @@ class SlimmerPlan extends React.Component {
   };
 
   componentDidMount() {
-    fetch("Slimmer.json")
+    fetch("https://jfdz13-team2-app.firebaseio.com/Slimmer.json")
       .then(response => response.json())
       .then(data => this.setState({ data }));
   }

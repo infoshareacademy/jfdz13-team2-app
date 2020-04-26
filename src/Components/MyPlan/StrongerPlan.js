@@ -9,7 +9,7 @@ class StrongerPlan extends React.Component {
   };
 
   componentDidMount() {
-    fetch("Stronger.json")
+    fetch("https://jfdz13-team2-app.firebaseio.com/Stronger.json")
       .then(response => response.json())
       .then(data => this.setState({ data }));
   }

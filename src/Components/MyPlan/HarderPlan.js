@@ -9,7 +9,7 @@ class HarderPlan extends React.Component {
   };
 
   componentDidMount() {
-    fetch("Harder.json")
+    fetch("https://jfdz13-team2-app.firebaseio.com/Harder.json")
       .then(response => response.json())
       .then(data => this.setState({ data }));
   }
