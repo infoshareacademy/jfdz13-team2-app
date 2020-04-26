@@ -92,6 +92,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            style={{ backgroundColor: "#080a1d" }}
           >
             Sign In
           </Button>
@@ -102,7 +103,7 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

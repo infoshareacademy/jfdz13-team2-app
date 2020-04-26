@@ -175,22 +175,10 @@ export default function PrimarySearchAppBar() {
           <div className={classes.grow} />
           <div className="topBarContainer">
             <div className="topBarButton">
-              <ButtonLog
-                component={Link}
-                to="/Components/Aplication/SignIn"
-                value="signin"
-              >
-                Sing in
-              </ButtonLog>
+              <ButtonLog content="Sign In" component={Link} jump="/signin" />
             </div>
             <div className="topBarButton">
-              <ButtonLog
-                component={Link}
-                to="/Components/Aplication/SignUp"
-                value="signup"
-              >
-                Sign up
-              </ButtonLog>
+              <ButtonLog content="Sign Up" component={Link} jump="/signup" />
             </div>
           </div>
           <div className={classes.sectionDesktop}>

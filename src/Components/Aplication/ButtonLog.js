@@ -2,6 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import DoubleArrowRoundedIcon from "@material-ui/icons/DoubleArrowRounded";
+import { NavLink as Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -9,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ButtonLog = () => {
+const ButtonLog = ({ content, jump }) => {
   const classes = useStyles();
 
   return (
@@ -19,8 +20,12 @@ const ButtonLog = () => {
         color="primary"
         style={{ backgroundColor: "#fe466a" }}
         className={classes.button}
+        component={Link}
+        to={jump}
         endIcon={<DoubleArrowRoundedIcon />}
-      ></Button>
+      >
+        {content}
+      </Button>
     </div>
   );
 };

@@ -12,6 +12,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
 
 function Copyright() {
   return (
@@ -48,6 +50,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [value, setValue] = React.useState("female");
+
+  const handleChange = event => {
+    setValue(event.target.value);
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -84,6 +91,63 @@ export default function SignUp() {
                 autoComplete="lname"
               />
             </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <RadioGroup
+                aria-label="gender"
+                name="gender1"
+                value={value}
+                onChange={handleChange}
+              >
+                <FormControlLabel
+                  value="female"
+                  control={<Radio />}
+                  label="Female"
+                />
+                <FormControlLabel
+                  value="male"
+                  control={<Radio />}
+                  label="Male"
+                />
+              </RadioGroup>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                type="number"
+                variant="outlined"
+                required
+                fullWidth
+                id="age"
+                label="Age"
+                name="age"
+                autoComplete="age"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                type="number"
+                autoComplete="height"
+                name="height"
+                variant="outlined"
+                required
+                fullWidth
+                id="height"
+                label="Height in cm"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                type="number"
+                variant="outlined"
+                required
+                fullWidth
+                id="weight"
+                label="Weight in kg"
+                name="weight"
+                autoComplete="age"
+              />
+            </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -107,12 +171,6 @@ export default function SignUp() {
                 autoComplete="current-password"
               />
             </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid>
           </Grid>
           <Button
             type="submit"
@@ -120,12 +178,13 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            style={{ backgroundColor: "#080a1d" }}
           >
             Sign Up
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/signin" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
