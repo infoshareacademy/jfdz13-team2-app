@@ -16,6 +16,7 @@
     "browser-router": "^0.2.0",
     "chart.js": "^2.9.3",
     "date-fns": "^2.0.0-beta.5",
+    "firebase": "^7.14.1",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.7",
     "material-table": "^1.57.2",

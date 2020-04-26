@@ -1,20 +1,33 @@
 import React from "react";
-import Harder from "../../Data/Harder";
 import MyTrainingCard from "./MyTrainingCard";
 import "../../App.css";
 import Heading from "../Heading";
 
-const HarderPlan = () => {
-  return (
-    <>
-      <Heading content={"MY PLAN - HARDER - DAY 1"} />
-      <div className="training__container">
-        {Harder.map(card => (
-          <MyTrainingCard key={card.id} card={card} />
-        ))}
-      </div>
-    </>
-  );
-};
+class HarderPlan extends React.Component {
+  state = {
+    data: []
+  };
+
+  componentDidMount() {
+    fetch("Harder.json")
+      .then(response => response.json())
+      .then(data => this.setState({ data }));
+  }
+
+  render() {
+    const { data } = this.state;
+
+    return (
+      <>
+        <Heading content={"MY PLAN - HARDER - DAY 1"} />
+        <div className="training__container">
+          {data.map(card => (
+            <MyTrainingCard key={card.id} card={card} />
+          ))}
+        </div>
+      </>
+    );
+  }
+}
 
 export default HarderPlan;

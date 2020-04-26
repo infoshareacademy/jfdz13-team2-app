@@ -1,18 +1,36 @@
 import React from "react";
 
-import UsersData from "../../Data/UsersData";
 import MyProfileCard from "./MyProfileCard";
 import Heading from "../Heading";
 
-const user = UsersData[0];
+// const user = UsersData[0];
 
-const myProfile = () => {
-  return (
-    <div>
-      <Heading content="MY PROFILE" />
-      <MyProfileCard user={user} />
-    </div>
-  );
-};
+class myProfile extends React.Component {
+  state = {
+    data: []
+  };
+
+  componentDidMount() {
+    fetch("UsersData.json")
+      .then(response => response.json())
+      .then(data => this.setState({ data }));
+  }
+
+  render() {
+    const { data } = this.state;
+    return (
+      <div>
+        <Heading content="MY PROFILE" />
+        {data
+          .filter(user => {
+            return user.id === 1;
+          })
+          .map(user => {
+            return <MyProfileCard key={user.id} user={user} />;
+          })}
+      </div>
+    );
+  }
+}
 
 export default myProfile;
