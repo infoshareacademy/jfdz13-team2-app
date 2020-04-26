@@ -14,7 +14,7 @@ class AllPlans extends React.Component {
   };
 
   componentDidMount() {
-    fetch("TrainingPlans.json")
+    fetch("https://jfdz13-team2-app.firebaseio.com/TrainingPlans.json")
       .then(response => response.json())
       .then(data => this.setState({ data }));
   }

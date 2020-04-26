@@ -9,7 +9,7 @@ import firebase from "firebase";
 const firebaseConfig = {
   apiKey: "AIzaSyDCbbnYx-m_nEExBcJH3qY_wHs5ZZvqBIc",
   authDomain: "jfdz13-team2-app.firebaseapp.com",
-  databaseURL: "https://jfdz13-team2-app.firebaseio.com",
+  databaseURL: "https://jfdz13-team2-app.firebaseio.com/",
   projectId: "jfdz13-team2-app",
   storageBucket: "jfdz13-team2-app.appspot.com",
   messagingSenderId: "751417169938",

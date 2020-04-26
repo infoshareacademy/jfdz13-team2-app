@@ -146,6 +146,14 @@ export default function PrimarySearchAppBar() {
         <p>Notifications</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
+        <MenuItem onClick={handleMenuClose}>
+          <Link
+            to="/my-profile"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            Profile
+          </Link>
+        </MenuItem>
         <IconButton
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
