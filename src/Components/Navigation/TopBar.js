@@ -14,6 +14,7 @@ import "./Navigation.css";
 import Avatar from "@material-ui/core/Avatar";
 import { NavLink as Link } from "react-router-dom";
 import ButtonLog from "./../../Components/Aplication/ButtonLog";
+import firebase from "firebase";
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -80,6 +81,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const handleSignOut = () => {
+    firebase.auth().signOut();
+  };
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -174,6 +178,14 @@ export default function PrimarySearchAppBar() {
 
           <div className={classes.grow} />
           <div className="topBarContainer">
+            <div className="topBarButton">
+              <ButtonLog
+                content="Sign Out"
+                component={Link}
+                jump="/"
+                onClick={handleSignOut}
+              />
+            </div>
             <div className="topBarButton">
               <ButtonLog content="Sign In" component={Link} jump="/signin" />
             </div>
