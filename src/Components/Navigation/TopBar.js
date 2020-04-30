@@ -13,9 +13,10 @@ import logo from "./LogoWhite.svg";
 import "./Navigation.css";
 import Avatar from "@material-ui/core/Avatar";
 import { NavLink as Link } from "react-router-dom";
-import ButtonLog from "./../../Components/Aplication/ButtonLog";
 import firebase from "firebase";
 import UserProvider from "./../../Components/Aplication/UserProvider";
+import Button from "@material-ui/core/Button";
+import DoubleArrowRoundedIcon from "@material-ui/icons/DoubleArrowRounded";
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -183,29 +184,30 @@ export default function PrimarySearchAppBar() {
                 <div className="topBarContainer">
                   {user ? (
                     <div className="topBarButton">
-                      <ButtonLog
-                        content="Sign Out"
-                        component={Link}
-                        jump="/"
-                        onClick={handleSignOut}
-                      />
+                      <Link to="/">
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          style={{ backgroundColor: "#fe466a" }}
+                          className={classes.button}
+                          onClick={handleSignOut}
+                          endIcon={<DoubleArrowRoundedIcon />}
+                        >
+                          Sign out
+                        </Button>
+                      </Link>
                     </div>
                   ) : (
-                    // <div className="topBarButton">
-                    //   <ButtonLog
-                    //     content="Sign Up"
-                    //     component={Link}
-                    //     jump="/signup"
-                    //   />
-                    // </div>
                     <Link to="/signin">
-                      <div className="topBarButton">
-                        <ButtonLog
-                          content="Sign In"
-                          component={Link}
-                          jump="/signin"
-                        />
-                      </div>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        style={{ backgroundColor: "#fe466a" }}
+                        className={classes.button}
+                        endIcon={<DoubleArrowRoundedIcon />}
+                      >
+                        Sign in
+                      </Button>
                     </Link>
                   )}
                 </div>

@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ButtonLog = ({ content, jump }) => {
+const ButtonLog = ({ content, jump, onClicked }) => {
   const classes = useStyles();
 
   return (
@@ -20,8 +20,7 @@ const ButtonLog = ({ content, jump }) => {
         color="primary"
         style={{ backgroundColor: "#fe466a" }}
         className={classes.button}
-        component={Link}
-        to={jump}
+        onClick={() => onClicked()}
         endIcon={<DoubleArrowRoundedIcon />}
       >
         {content}
