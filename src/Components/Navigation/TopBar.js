@@ -15,6 +15,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { NavLink as Link } from "react-router-dom";
 import ButtonLog from "./../../Components/Aplication/ButtonLog";
 import firebase from "firebase";
+import UserProvider from "./../../Components/Aplication/UserProvider";
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -169,62 +170,84 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <div className={classes.grow}>
-      <>
-        <Toolbar>
-          <div className="toolbarLogo">
-            <img src={logo} alt="MoveOnLogo" />
-          </div>
+    <UserProvider>
+      {user => {
+        return (
+          <div className={classes.grow}>
+            <>
+              <Toolbar>
+                <div className="toolbarLogo">
+                  <img src={logo} alt="MoveOnLogo" />
+                </div>
+                <div className={classes.grow} />
+                <div className="topBarContainer">
+                  {user ? (
+                    <div className="topBarButton">
+                      <ButtonLog
+                        content="Sign Out"
+                        component={Link}
+                        jump="/"
+                        onClick={handleSignOut}
+                      />
+                    </div>
+                  ) : (
+                    <Link to="/sign-in">
+                      <div className="topBarButton">
+                        <ButtonLog
+                          content="Sign In"
+                          component={Link}
+                          jump="/signin"
+                        />
+                      </div>
+                    </Link>
+                  )}
 
-          <div className={classes.grow} />
-          <div className="topBarContainer">
-            <div className="topBarButton">
-              <ButtonLog
-                content="Sign Out"
-                component={Link}
-                jump="/"
-                onClick={handleSignOut}
-              />
-            </div>
-            <div className="topBarButton">
-              <ButtonLog content="Sign In" component={Link} jump="/signin" />
-            </div>
-            <div className="topBarButton">
-              <ButtonLog content="Sign Up" component={Link} jump="/signup" />
-            </div>
+                  <div className="topBarButton">
+                    <ButtonLog
+                      content="Sign Up"
+                      component={Link}
+                      jump="/signup"
+                    />
+                  </div>
+                </div>
+                <div className={classes.sectionDesktop}>
+                  <IconButton
+                    aria-label="show 17 new notifications"
+                    color="inherit"
+                  >
+                    <Badge badgeContent={17} color="secondary">
+                      <NotificationsIcon />
+                    </Badge>
+                  </IconButton>
+                  <IconButton
+                    edge="end"
+                    aria-label="account of current user"
+                    aria-controls={menuId}
+                    aria-haspopup="true"
+                    onClick={handleProfileMenuOpen}
+                    color="inherit"
+                  >
+                    <Avatar alt="Remy Sharp" src={avatar} />
+                  </IconButton>
+                </div>
+                <div className={classes.sectionMobile}>
+                  <IconButton
+                    aria-label="show more"
+                    aria-controls={mobileMenuId}
+                    aria-haspopup="true"
+                    onClick={handleMobileMenuOpen}
+                    color="inherit"
+                  >
+                    <MoreIcon />
+                  </IconButton>
+                </div>
+              </Toolbar>
+            </>
+            {renderMobileMenu}
+            {renderMenu}
           </div>
-          <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <Avatar alt="Remy Sharp" src={avatar} />
-            </IconButton>
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
-        </Toolbar>
-      </>
-      {renderMobileMenu}
-      {renderMenu}
-    </div>
+        );
+      }}
+    </UserProvider>
   );
 }
