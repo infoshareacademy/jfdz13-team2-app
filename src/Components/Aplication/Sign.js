@@ -77,7 +77,7 @@ class Sign extends React.Component {
                   <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                  Sign up
+                  {this.props.isSignUp ? "Sign up" : "Sign in"}
                 </Typography>
                 <form noValidate onSubmit={this.handleOnSubmit}>
                   <Grid container spacing={2}>
@@ -198,7 +198,7 @@ class Sign extends React.Component {
                     className
                     style={{ backgroundColor: "#080a1d" }}
                   >
-                    Sign Up
+                    {this.props.isSignUp ? "Sign up" : "Sign in"}
                   </Button>
                   <Grid container justify="flex-end">
                     <Grid item>

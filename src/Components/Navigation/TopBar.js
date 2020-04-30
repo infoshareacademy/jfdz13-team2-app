@@ -191,7 +191,14 @@ export default function PrimarySearchAppBar() {
                       />
                     </div>
                   ) : (
-                    <Link to="/sign-in">
+                    // <div className="topBarButton">
+                    //   <ButtonLog
+                    //     content="Sign Up"
+                    //     component={Link}
+                    //     jump="/signup"
+                    //   />
+                    // </div>
+                    <Link to="/signin">
                       <div className="topBarButton">
                         <ButtonLog
                           content="Sign In"
@@ -201,14 +208,6 @@ export default function PrimarySearchAppBar() {
                       </div>
                     </Link>
                   )}
-
-                  <div className="topBarButton">
-                    <ButtonLog
-                      content="Sign Up"
-                      component={Link}
-                      jump="/signup"
-                    />
-                  </div>
                 </div>
                 <div className={classes.sectionDesktop}>
                   <IconButton
