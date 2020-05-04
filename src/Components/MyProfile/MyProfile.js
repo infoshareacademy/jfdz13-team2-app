@@ -11,7 +11,8 @@ class myProfile extends React.Component {
   };
 
   componentDidMount() {
-    fetch("https://jfdz13-team2-app.firebaseio.com/UsersData.json")
+    // fetch("https://jfdz13-team2-app.firebaseio.com/UsersData.json/")
+    fetch("UsersData.json")
       .then(response => response.json())
       .then(data => this.setState({ data }));
   }

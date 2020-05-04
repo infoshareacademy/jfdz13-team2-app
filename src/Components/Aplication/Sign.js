@@ -16,8 +16,15 @@ import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import UserProvider from "./UserProvider";
 
+// const initialState = {
+//   firstName: "",
+//   lastName: "",
+// };
+
 class Sign extends React.Component {
   state = {
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     redirect: false
@@ -44,6 +51,18 @@ class Sign extends React.Component {
           const errorMessage = error.message;
           alert(errorMessage);
         });
+      fetch("https://jfdz13-team2-app.firebaseio.com/UsersData.json", {
+        method: "POST",
+        body: JSON.stringify({
+          firstName: this.state.firstName,
+          lastName: this.state.lastName
+        })
+      }).then(() => {
+        this.setState({
+          firstName: this.state.firstName,
+          lastName: this.state.lastName
+        });
+      });
     } else {
       firebase
         .auth()
@@ -59,6 +78,7 @@ class Sign extends React.Component {
         });
     }
   };
+
   render() {
     if (this.state.redirect) {
       return <Redirect to="/my-profile" />;
@@ -94,17 +114,22 @@ class Sign extends React.Component {
                           id="firstName"
                           label="First Name"
                           autoFocus
+                          value={this.state.firstName}
+                          onChange={this.handleOnChange}
                         />
                       </Grid>
                       <Grid item xs={12} sm={6}>
                         <TextField
+                          autoComplete="lname"
+                          name="lastName"
                           variant="outlined"
                           required
                           fullWidth
                           id="lastName"
                           label="Last Name"
-                          name="lastName"
-                          autoComplete="lname"
+                          autoFocus
+                          value={this.state.lastName}
+                          onChange={this.handleOnChange}
                         />
                       </Grid>
 
