@@ -16,15 +16,14 @@ import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import UserProvider from "./UserProvider";
 
-// const initialState = {
-//   firstName: "",
-//   lastName: "",
-// };
-
 class Sign extends React.Component {
   state = {
     firstName: "",
     lastName: "",
+    sex: "",
+    age: "",
+    height: "",
+    weight: "",
     email: "",
     password: "",
     redirect: false
@@ -55,12 +54,20 @@ class Sign extends React.Component {
         method: "POST",
         body: JSON.stringify({
           firstName: this.state.firstName,
-          lastName: this.state.lastName
+          lastName: this.state.lastName,
+          sex: this.state.sex,
+          age: this.state.age,
+          height: this.state.height,
+          weight: this.state.weight
         })
       }).then(() => {
         this.setState({
           firstName: this.state.firstName,
-          lastName: this.state.lastName
+          lastName: this.state.lastName,
+          sex: this.state.sex,
+          age: this.state.age,
+          height: this.state.height,
+          weight: this.state.weight
         });
       });
     } else {
@@ -137,16 +144,18 @@ class Sign extends React.Component {
                         <RadioGroup
                           aria-label="gender"
                           name="gender1"
-                          // value={value}
+                          // value={this.state.sex}
                           // onChange={handleChange}
                         >
                           <FormControlLabel
                             value="female"
+                            onChange={this.handleOnChange}
                             control={<Radio />}
                             label="Female"
                           />
                           <FormControlLabel
                             value="male"
+                            onChange={this.handleOnChange}
                             control={<Radio />}
                             label="Male"
                           />
@@ -162,6 +171,8 @@ class Sign extends React.Component {
                           label="Age"
                           name="age"
                           autoComplete="age"
+                          value={this.state.age}
+                          onChange={this.handleOnChange}
                         />
                       </Grid>
                       <Grid item xs={12} sm={6}>
@@ -175,6 +186,8 @@ class Sign extends React.Component {
                           id="height"
                           label="Height in cm"
                           autoFocus
+                          value={this.state.height}
+                          onChange={this.handleOnChange}
                         />
                       </Grid>
                       <Grid item xs={12} sm={6}>
@@ -186,7 +199,9 @@ class Sign extends React.Component {
                           id="weight"
                           label="Weight in kg"
                           name="weight"
-                          autoComplete="age"
+                          autoComplete="weight"
+                          value={this.state.weight}
+                          onChange={this.handleOnChange}
                         />
                       </Grid>
                       <Grid item xs={12}>
