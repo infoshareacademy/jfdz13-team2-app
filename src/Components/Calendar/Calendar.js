@@ -39,6 +39,7 @@ import Close from "@material-ui/icons/Close";
 import CalendarToday from "@material-ui/icons/CalendarToday";
 import Create from "@material-ui/icons/Create";
 import Heading from "./../Heading";
+import UserProvider from "./../Aplication/UserProvider";
 
 export const appointments = [
   {
@@ -505,71 +506,83 @@ class Demo extends React.PureComponent {
     const { classes } = this.props;
 
     return (
-      <Paper>
-        <Heading content="SHEDULE OF YOUR WORK!" />
-        <Scheduler data={data} height={660}>
-          <ViewState currentDate={currentDate} />
-          <EditingState
-            onCommitChanges={this.commitChanges}
-            onEditingAppointmentChange={this.onEditingAppointmentChange}
-            onAddedAppointmentChange={this.onAddedAppointmentChange}
-          />
-          <WeekView startDayHour={startDayHour} endDayHour={endDayHour} />
-          <MonthView />
-          <AllDayPanel />
-          <EditRecurrenceMenu />
-          <Appointments />
-          <AppointmentTooltip showOpenButton showCloseButton showDeleteButton />
-          <Toolbar />
-          <ViewSwitcher />
-          <AppointmentForm
-            overlayComponent={this.appointmentForm}
-            visible={editingFormVisible}
-            onVisibilityChange={this.toggleEditingFormVisibility}
-          />
-          <DragDropProvider />
-        </Scheduler>
+      <UserProvider>
+        {user => {
+          return user ? (
+            <Paper>
+              <Heading content="SHEDULE OF YOUR WORK!" />
+              <Scheduler data={data} height={660}>
+                <ViewState currentDate={currentDate} />
+                <EditingState
+                  onCommitChanges={this.commitChanges}
+                  onEditingAppointmentChange={this.onEditingAppointmentChange}
+                  onAddedAppointmentChange={this.onAddedAppointmentChange}
+                />
+                <WeekView startDayHour={startDayHour} endDayHour={endDayHour} />
+                <MonthView />
+                <AllDayPanel />
+                <EditRecurrenceMenu />
+                <Appointments />
+                <AppointmentTooltip
+                  showOpenButton
+                  showCloseButton
+                  showDeleteButton
+                />
+                <Toolbar />
+                <ViewSwitcher />
+                <AppointmentForm
+                  overlayComponent={this.appointmentForm}
+                  visible={editingFormVisible}
+                  onVisibilityChange={this.toggleEditingFormVisibility}
+                />
+                <DragDropProvider />
+              </Scheduler>
 
-        <Dialog open={confirmationVisible} onClose={this.cancelDelete}>
-          <DialogTitle>Delete Appointment</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              Are you sure you want to delete this appointment?
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button
-              onClick={this.toggleConfirmationVisible}
-              color="primary"
-              variant="outlined"
-            >
-              Cancel
-            </Button>
-            <Button
-              onClick={this.commitDeletedAppointment}
-              color="secondary"
-              variant="outlined"
-            >
-              Delete
-            </Button>
-          </DialogActions>
-        </Dialog>
+              <Dialog open={confirmationVisible} onClose={this.cancelDelete}>
+                <DialogTitle>Delete Appointment</DialogTitle>
+                <DialogContent>
+                  <DialogContentText>
+                    Are you sure you want to delete this appointment?
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button
+                    onClick={this.toggleConfirmationVisible}
+                    color="primary"
+                    variant="outlined"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    onClick={this.commitDeletedAppointment}
+                    color="secondary"
+                    variant="outlined"
+                  >
+                    Delete
+                  </Button>
+                </DialogActions>
+              </Dialog>
 
-        <Fab
-          color="secondary"
-          className={classes.addButton}
-          onClick={() => {
-            this.setState({ editingFormVisible: true });
-            this.onEditingAppointmentChange(undefined);
-            this.onAddedAppointmentChange({
-              startDate: new Date(currentDate).setHours(startDayHour),
-              endDate: new Date(currentDate).setHours(startDayHour + 1)
-            });
-          }}
-        >
-          <AddIcon />
-        </Fab>
-      </Paper>
+              <Fab
+                color="secondary"
+                className={classes.addButton}
+                onClick={() => {
+                  this.setState({ editingFormVisible: true });
+                  this.onEditingAppointmentChange(undefined);
+                  this.onAddedAppointmentChange({
+                    startDate: new Date(currentDate).setHours(startDayHour),
+                    endDate: new Date(currentDate).setHours(startDayHour + 1)
+                  });
+                }}
+              >
+                <AddIcon />
+              </Fab>
+            </Paper>
+          ) : (
+            <h2>Sign In to check your calendar</h2>
+          );
+        }}
+      </UserProvider>
     );
   }
 }

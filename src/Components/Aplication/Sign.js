@@ -58,7 +58,8 @@ class Sign extends React.Component {
           sex: this.state.sex,
           age: this.state.age,
           height: this.state.height,
-          weight: this.state.weight
+          weight: this.state.weight,
+          email: this.state.email
         })
       }).then(() => {
         this.setState({
@@ -67,7 +68,8 @@ class Sign extends React.Component {
           sex: this.state.sex,
           age: this.state.age,
           height: this.state.height,
-          weight: this.state.weight
+          weight: this.state.weight,
+          email: this.state.email
         });
       });
     } else {

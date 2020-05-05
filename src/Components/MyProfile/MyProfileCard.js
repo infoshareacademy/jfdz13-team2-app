@@ -35,9 +35,10 @@ class MyProfileCard extends React.Component {
 
   render() {
     const {
-      avatarUrl,
-      name,
-      firstTraining,
+      // avatarUrl,
+      firstName,
+      lastName,
+      // firstTraining,
       myTraining,
       sex,
       age,
@@ -49,15 +50,17 @@ class MyProfileCard extends React.Component {
       <>
         <Card className="myProfile">
           <CardHeader
-            avatar={
-              <img
-                className="myProfile__avatar"
-                src={avatarUrl}
-                alt="myPhoto"
-              />
-            }
-            title={name}
-            subheader={`MoveOn since: ${firstTraining}`}
+            // avatar={
+            //   <img
+            //     className="myProfile__avatar"
+            //     src={avatarUrl}
+            //     alt="myPhoto"
+            //   />
+            // }
+
+            title={firstName}
+            subheader={lastName}
+            // subheader={`MoveOn since: ${firstTraining}`}
           />
           <hr />
           <CardContent className="myProfile__container">
