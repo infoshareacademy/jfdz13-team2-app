@@ -35,7 +35,7 @@ class MyProfileCard extends React.Component {
       // avatarUrl,
       firstName,
       lastName,
-      // firstTraining,
+      date,
       myTraining,
       sex,
       age,
@@ -59,9 +59,8 @@ class MyProfileCard extends React.Component {
             avatar={
               <Avatar style={{ backgroundColor: "#080a1d" }}>{logo}</Avatar>
             }
-            title={firstName}
-            subheader={lastName}
-            // subheader={`MoveOn since: ${firstTraining}`}
+            title={`${firstName} ${lastName}`}
+            subheader={`MoveOn since: ${date}`}
           />
           <hr />
           <CardContent className="myProfile__container">

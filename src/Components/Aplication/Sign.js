@@ -15,6 +15,9 @@ import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import UserProvider from "./UserProvider";
 
+const now = new Date();
+const today = ` ${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
+
 class Sign extends React.Component {
   state = {
     firstName: "",
@@ -25,6 +28,7 @@ class Sign extends React.Component {
     weight: "",
     email: "",
     password: "",
+    date: today,
     redirect: false
   };
 
@@ -58,7 +62,8 @@ class Sign extends React.Component {
           age: this.state.age,
           height: this.state.height,
           weight: this.state.weight,
-          email: this.state.email
+          email: this.state.email,
+          date: this.state.date
         })
       }).then(() => {
         this.setState({
@@ -68,7 +73,8 @@ class Sign extends React.Component {
           age: this.state.age,
           height: this.state.height,
           weight: this.state.weight,
-          email: this.state.email
+          email: this.state.email,
+          date: this.state.date
         });
       });
     } else {
