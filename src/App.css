@@ -124,6 +124,16 @@
   color: #fe466a;
 }
 
+.myProfile__userFieldHeading {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.myProfile__userField {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .planCard__image {
   height: 300px;
 }
