@@ -37,13 +37,13 @@ class myProfile extends React.Component {
     const { data } = this.state;
     return (
       <UserProvider>
-        {user => {
-          return user ? (
+        {person => {
+          return person ? (
             <div>
               <Heading content="MY PROFILE" />
               {data
                 .filter(user => {
-                  return user.email === "testowy@testowy.pl";
+                  return user.email === person.email;
                 })
                 .map(user => {
                   return <MyProfileCard user={user} />;
