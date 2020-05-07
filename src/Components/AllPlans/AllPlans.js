@@ -14,24 +14,25 @@ class AllPlans extends React.Component {
     data: [],
     chosenPlan: ""
   };
+
   addedPlan = title => {
-    this.setState({
-      chosenPlan: title
-    });
-    console.log(title);
     fetch(
-      "https://jfdz13-team2-app.firebaseio.com/UsersData/-M6kbvzVHS4Za9cEhNP_",
+      "https://jfdz13-team2-app.firebaseio.com/UsersData/-M6l0dFrBeCJbYe1H9v5.json",
       {
-        method: "PUT",
+        method: "PATCH",
         body: JSON.stringify({
-          myTrainingPlan: this.state.chosenPlan
+          myTrainingPlan: title
         })
       }
-    ).then(() => {
-      this.setState({
-        myTrainingPlan: this.state.chosenPlan
+    )
+      .then(() => {
+        this.setState({
+          chosenPlan: title
+        });
+      })
+      .then(() => {
+        console.log(this.state.chosenPlan);
       });
-    });
   };
 
   componentDidMount() {
@@ -50,7 +51,6 @@ class AllPlans extends React.Component {
               <Heading content="CHOOSE YOUR PERSONAL TRAINING PLAN" />
               <div className={"training__container"}>
                 {data.map(plans => {
-                  console.log("plans: ", plans);
                   return (
                     <PlanCard
                       component={Link}

@@ -11,6 +11,7 @@ import SentimentDissatisfiedIcon from "@material-ui/icons/SentimentDissatisfied"
 import SentimentSatisfiedAltIcon from "@material-ui/icons/SentimentSatisfiedAlt";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 import UserPersonalData from "./UserPersonalData";
+import { NavLink } from "react-router-dom";
 
 class MyProfileCard extends React.Component {
   calculateBmi = () =>
@@ -36,7 +37,7 @@ class MyProfileCard extends React.Component {
       firstName,
       lastName,
       date,
-      myTraining,
+      myTrainingPlan,
       sex,
       age,
       height,
@@ -67,8 +68,12 @@ class MyProfileCard extends React.Component {
             <div>
               <p className="myProfile__userFieldHeading">My Training Plan</p>
               <div className="myProfile__userField">
-                <HowToRegIcon />
-                <p>Slimmer</p>
+                <Tooltip title="Choose your plan">
+                  <NavLink style={{ color: "black" }} to="/all-plans">
+                    <HowToRegIcon />
+                  </NavLink>
+                </Tooltip>
+                <p>{myTrainingPlan}</p>
               </div>
             </div>
             <div>

@@ -21,6 +21,7 @@ const today = ` ${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
 class Sign extends React.Component {
   state = {
     firstName: "",
+    myTrainingPlan: "",
     lastName: "",
     sex: "",
     age: "",
@@ -63,7 +64,8 @@ class Sign extends React.Component {
           height: this.state.height,
           weight: this.state.weight,
           email: this.state.email,
-          date: this.state.date
+          date: this.state.date,
+          myTrainingPlan: this.state.myTrainingPlan
         })
       }).then(() => {
         this.setState({
@@ -74,7 +76,8 @@ class Sign extends React.Component {
           height: this.state.height,
           weight: this.state.weight,
           email: this.state.email,
-          date: this.state.date
+          date: this.state.date,
+          myTrainingPlan: this.state.myTrainingPlan
         });
       });
     } else {

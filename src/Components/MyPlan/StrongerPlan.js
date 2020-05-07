@@ -5,7 +5,9 @@ import "../../App.css";
 
 class StrongerPlan extends React.Component {
   state = {
-    data: []
+    data: [],
+    finishedExercises: [],
+    isExerciseInProgress: false
   };
 
   componentDidMount() {
@@ -14,15 +16,35 @@ class StrongerPlan extends React.Component {
       .then(data => this.setState({ data }));
   }
 
+  onExerciseStarted = () => {
+    this.setState({
+      isExerciseInProgress: true
+    });
+  };
+
+  onExerciseFinished = id => {
+    this.setState({
+      isExerciseInProgress: false,
+      finishedExercises: [...this.state.finishedExercises, id]
+    });
+  };
+
   render() {
-    const { data } = this.state;
+    const { data, finishedExercises, isExerciseInProgress } = this.state;
 
     return (
       <>
-        <Heading content={"MY PLAN - STRONGER - DAY 1"} />
+        <Heading content={"MY PLAN - SLIMMER - DAY 1"} />
         <div className="training__container">
           {data.map(card => (
-            <MyTrainingCard key={card.id} card={card} />
+            <MyTrainingCard
+              key={card.id}
+              card={card}
+              onExerciseStarted={this.onExerciseStarted}
+              onExerciseFinished={this.onExerciseFinished}
+              isExerciseInProgress={isExerciseInProgress}
+              finishedExercises={finishedExercises}
+            />
           ))}
         </div>
       </>

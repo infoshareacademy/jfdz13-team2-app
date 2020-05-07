@@ -29,7 +29,14 @@ class MyPlan extends React.Component {
     });
   };
 
+  onWholePlanFinished = () => {
+    if (this.state.finishedExercises.length === 8) {
+      alert("Well done!");
+    }
+  };
+
   render() {
+    this.onWholePlanFinished();
     const { data, finishedExercises, isExerciseInProgress } = this.state;
 
     return (

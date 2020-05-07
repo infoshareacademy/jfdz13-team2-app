@@ -15,8 +15,6 @@ const StartNowButton = ({ jump, onClicked }) => {
 
   return (
     <div>
-      {console.log(jump)}
-      {/* This Button uses a Font Icon, see the installation instructions in the Icon component docs. */}
       <Button
         component={Link}
         to={jump}
