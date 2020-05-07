@@ -10,7 +10,14 @@ import "./../../App.css";
 
 class AllPlans extends React.Component {
   state = {
-    data: []
+    data: [],
+    chosenPlan: ""
+  };
+  addedPlan = title => {
+    this.setState({
+      chosenPlan: title
+    });
+    console.log(title);
   };
 
   componentDidMount() {
@@ -44,6 +51,7 @@ class AllPlans extends React.Component {
                 image={plans.image}
                 jump={plans.jump}
                 key={plans.id} // dlatego wlasnie mapuje po id)
+                addedPlan={this.addedPlan}
               ></PlanCard>
             );
           })}

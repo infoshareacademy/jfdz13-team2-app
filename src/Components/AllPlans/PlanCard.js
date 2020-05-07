@@ -50,7 +50,8 @@ export default function PlanCard({
   step_2,
   step_3,
   image,
-  jump
+  jump,
+  addedPlan
 }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -59,6 +60,9 @@ export default function PlanCard({
     setExpanded(!expanded);
   };
 
+  const onClicked = () => {
+    addedPlan(title);
+  };
   return (
     <>
       <Card style={{ alignSelf: "flex-start" }} className="classes__root_card">
@@ -74,7 +78,7 @@ export default function PlanCard({
           }
           action={
             <IconButton aria-label="settings">
-              <StartNow jump={jump} />
+              <StartNow jump={jump} onClicked={onClicked} />
             </IconButton>
           }
           title={title}

@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const StartNowButton = ({ jump }) => {
+const StartNowButton = ({ jump, onClicked }) => {
   const classes = useStyles();
 
   return (
@@ -20,6 +20,7 @@ const StartNowButton = ({ jump }) => {
       <Button
         component={Link}
         to={jump}
+        onClick={onClicked}
         variant="contained"
         color="primary"
         //style={{ backgroundColor: "#080a1d" }}
