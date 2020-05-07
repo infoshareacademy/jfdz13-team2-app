@@ -10,28 +10,36 @@ class MyTrainingCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: 30,
+      time: 3,
       exerciseIsStarted: false
     };
   }
 
-  counterTime = () => {
-    if (this.state.time) {
-      this.setState({
-        time: this.state.time - 1
-      });
-    }
-  };
-
-  handleTimer = () => {
+  handleTimer = id => {
+    let interval;
+    const counterTime = () => {
+      if (this.state.time) {
+        this.setState({
+          time: this.state.time - 1
+        });
+      } else {
+        this.props.onExerciseFinished(id);
+        clearInterval(interval);
+      }
+    };
+    this.props.onExerciseStarted();
     this.setState({
       exerciseIsStarted: !this.state.exerciseIsStarted
     });
-    setInterval(this.counterTime, 1000);
+    interval = setInterval(counterTime, 1000);
   };
 
   render() {
-    const { id, name, image } = this.props.card;
+    const {
+      card: { id, name, image },
+      isExerciseInProgress,
+      finishedExercises
+    } = this.props;
 
     return (
       <>
@@ -52,9 +60,9 @@ class MyTrainingCard extends React.Component {
           </CardContent>
           <CardActions className="trainingCard__checkIcon">
             <MyPlanButton
-              onClicked={this.handleTimer}
+              onClicked={() => this.handleTimer(id)}
               content={this.state.time ? "START NOW" : "GOOD JOB!!!"}
-              disabled={this.state.exerciseIsStarted}
+              disabled={isExerciseInProgress || finishedExercises.includes(id)}
             />
             <div className="countdown">
               <div
@@ -73,7 +81,7 @@ class MyTrainingCard extends React.Component {
                   cy="20"
                   style={
                     this.state.exerciseIsStarted
-                      ? { animation: "countdown 30s linear forwards" }
+                      ? { animation: "countdown 3s linear forwards" }
                       : null
                   }
                 ></circle>
