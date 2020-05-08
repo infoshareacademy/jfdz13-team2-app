@@ -7,7 +7,8 @@ class MyPlan extends React.Component {
   state = {
     data: [],
     finishedExercises: [],
-    isExerciseInProgress: false
+    isExerciseInProgress: false,
+    myPlan: ""
   };
 
   componentDidMount() {

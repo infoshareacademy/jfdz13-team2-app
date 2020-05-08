@@ -79,7 +79,7 @@ class MyProfileCard extends React.Component {
             <div>
               <p className="myProfile__userFieldHeading">Sex</p>
               <div className="myProfile__userField">
-                <p>Female</p>
+                <p>{sex}</p>
               </div>
             </div>
             {/* <FormControl component="fieldset">

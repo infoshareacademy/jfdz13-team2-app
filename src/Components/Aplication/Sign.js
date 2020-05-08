@@ -14,6 +14,8 @@ import firebase from "firebase";
 import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import UserProvider from "./UserProvider";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
 
 const now = new Date();
 const today = ` ${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
@@ -149,8 +151,36 @@ class Sign extends React.Component {
                           onChange={this.handleOnChange}
                         />
                       </Grid>
+                      <Grid>
+                        <RadioGroup>
+                          <div className="radio">
+                            <label>
+                              <input
+                                name="sex"
+                                type="radio"
+                                value="Female"
+                                checked={this.state.sex === "Female"}
+                                onChange={this.handleOnChange}
+                              />
+                              Female
+                            </label>
+                          </div>
+                          <div className="radio">
+                            <label>
+                              <input
+                                name="sex"
+                                type="radio"
+                                value="Male"
+                                checked={this.state.sex === "Male"}
+                                onChange={this.handleOnChange}
+                              />
+                              Male
+                            </label>
+                          </div>
+                        </RadioGroup>
+                      </Grid>
 
-                      <Grid item xs={12} sm={6}>
+                      {/* <Grid item xs={12} sm={6}>
                         <RadioGroup
                           aria-label="gender"
                           name="gender1"
@@ -170,7 +200,7 @@ class Sign extends React.Component {
                             label="Male"
                           />
                         </RadioGroup>
-                      </Grid>
+                      </Grid> */}
                       <Grid item xs={12} sm={6}>
                         <TextField
                           type="number"
