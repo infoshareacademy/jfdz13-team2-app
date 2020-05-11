@@ -3,25 +3,22 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import firebase from "firebase";
 import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import UserProvider from "./UserProvider";
-import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 
 const now = new Date();
 const today = ` ${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
 
 class Sign extends React.Component {
   state = {
+    id: "",
     firstName: "",
     myTrainingPlan: "",
     lastName: "",
@@ -40,48 +37,49 @@ class Sign extends React.Component {
       [event.target.name]: event.target.value
     });
   };
-
   handleOnSubmit = event => {
     event.preventDefault();
     if (this.props.isSignUp) {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .then(() => {
+        .then(resp => {
+          const uid = resp.user.uid;
           this.setState({
             redirect: true
           });
-        })
-        .catch(function(error) {
-          const errorMessage = error.message;
-          alert(errorMessage);
+          fetch(
+            `https://jfdz13-team2-app.firebaseio.com/UsersData/${uid}.json`,
+            {
+              method: "PUT",
+              body: JSON.stringify({
+                id: uid,
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                sex: this.state.sex,
+                age: this.state.age,
+                height: this.state.height,
+                weight: this.state.weight,
+                email: this.state.email,
+                date: this.state.date,
+                myTrainingPlan: this.state.myTrainingPlan
+              })
+            }
+          ).then(() => {
+            this.setState({
+              id: this.state.id,
+              firstName: this.state.firstName,
+              lastName: this.state.lastName,
+              sex: this.state.sex,
+              age: this.state.age,
+              height: this.state.height,
+              weight: this.state.weight,
+              email: this.state.email,
+              date: this.state.date,
+              myTrainingPlan: this.state.myTrainingPlan
+            });
+          });
         });
-      fetch("https://jfdz13-team2-app.firebaseio.com/UsersData.json", {
-        method: "POST",
-        body: JSON.stringify({
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          sex: this.state.sex,
-          age: this.state.age,
-          height: this.state.height,
-          weight: this.state.weight,
-          email: this.state.email,
-          date: this.state.date,
-          myTrainingPlan: this.state.myTrainingPlan
-        })
-      }).then(() => {
-        this.setState({
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          sex: this.state.sex,
-          age: this.state.age,
-          height: this.state.height,
-          weight: this.state.weight,
-          email: this.state.email,
-          date: this.state.date,
-          myTrainingPlan: this.state.myTrainingPlan
-        });
-      });
     } else {
       firebase
         .auth()
