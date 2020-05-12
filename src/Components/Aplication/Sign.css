@@ -1,0 +1,10 @@
+.regularText {
+  font: inherit;
+  font-size: 1rem;
+  color: gray;
+  border: 0;
+  display: inline;
+  align-items: stretch;
+  background: none;
+  box-sizing: content-box;
+}

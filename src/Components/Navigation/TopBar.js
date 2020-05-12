@@ -183,12 +183,14 @@ export default function PrimarySearchAppBar() {
                 <div className={classes.grow} />
                 <div className="topBarContainer">
                   {user ? (
-                    <div className="topBarButton">
+                    <div>
                       <Link to="/">
                         <Button
                           variant="contained"
                           color="primary"
-                          style={{ backgroundColor: "#fe466a" }}
+                          style={{
+                            backgroundColor: "#fe466a"
+                          }}
                           className={classes.button}
                           onClick={handleSignOut}
                           endIcon={<DoubleArrowRoundedIcon />}

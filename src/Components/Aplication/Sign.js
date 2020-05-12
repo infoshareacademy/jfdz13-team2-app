@@ -11,6 +11,8 @@ import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import UserProvider from "./UserProvider";
 import logo from "./../Navigation/Logo.svg";
+import "./../Aplication/Sign.css";
+// import Heading from "./../../Components/Heading";
 
 const now = new Date();
 const today = ` ${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
@@ -104,9 +106,13 @@ class Sign extends React.Component {
         {user => {
           return user ? (
             <h2 style={{ textAlign: "center", marginTop: 20 }}>
-              You are already logged in!
+              YOU ARE ALREADY LOGGED IN!
             </h2>
           ) : (
+            //    <Heading
+            //    style={{ textAlign: "center", marginTop: 20 }}
+            //    content="You are already logged in"
+            //  />
             <Container component="main" maxWidth="xs">
               <CssBaseline />
               <div>
@@ -148,7 +154,7 @@ class Sign extends React.Component {
                           onChange={this.handleOnChange}
                         />
                       </Grid>
-                      <Grid>
+                      <Grid item xs={12} sm={6}>
                         <RadioGroup>
                           <div className="radio">
                             <label>
@@ -159,10 +165,9 @@ class Sign extends React.Component {
                                 checked={this.state.sex === "Female"}
                                 onChange={this.handleOnChange}
                               />
-                              Female
+                              <p className="regularText">Female</p>
                             </label>
-                          </div>
-                          <div className="radio">
+
                             <label>
                               <input
                                 name="sex"
@@ -171,7 +176,7 @@ class Sign extends React.Component {
                                 checked={this.state.sex === "Male"}
                                 onChange={this.handleOnChange}
                               />
-                              Male
+                              <p className="regularText">Male</p>
                             </label>
                           </div>
                         </RadioGroup>
@@ -316,11 +321,11 @@ class Sign extends React.Component {
                     <Grid item>
                       {this.props.isSignUp ? (
                         <NavLink className="regularText" to="/signin">
-                          Do you have an account? Sign In
+                          DO YOU HAVE AN ACOOUNT? SIGN IN
                         </NavLink>
                       ) : (
                         <NavLink className="regularText" to="/signup">
-                          Don't have an account? Sign Up
+                          DON'T HAVE AN ACCOUNT? SIGN UP
                         </NavLink>
                       )}
                     </Grid>
