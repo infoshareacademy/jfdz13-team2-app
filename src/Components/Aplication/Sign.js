@@ -156,7 +156,7 @@ class Sign extends React.Component {
                       </Grid>
                       <Grid item xs={12} sm={6}>
                         <RadioGroup>
-                          <div className="radio">
+                          <div className="radioButtonSign">
                             <label>
                               <input
                                 name="sex"
@@ -182,27 +182,6 @@ class Sign extends React.Component {
                         </RadioGroup>
                       </Grid>
 
-                      {/* <Grid item xs={12} sm={6}>
-                        <RadioGroup
-                          aria-label="gender"
-                          name="gender1"
-                          // value={this.state.sex}
-                          // onChange={handleChange}
-                        >
-                          <FormControlLabel
-                            value="female"
-                            onChange={this.handleOnChange}
-                            control={<Radio />}
-                            label="Female"
-                          />
-                          <FormControlLabel
-                            value="male"
-                            onChange={this.handleOnChange}
-                            control={<Radio />}
-                            label="Male"
-                          />
-                        </RadioGroup>
-                      </Grid> */}
                       <Grid item xs={12} sm={6}>
                         <TextField
                           type="number"

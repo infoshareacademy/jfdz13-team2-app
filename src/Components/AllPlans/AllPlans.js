@@ -53,6 +53,7 @@ class AllPlans extends React.Component {
 
   render() {
     const { data } = this.state;
+    console.log(this.state.user);
     return (
       this.state.user && (
         <>
