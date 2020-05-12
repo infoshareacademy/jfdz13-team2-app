@@ -1,10 +1,8 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import RadioGroup from "@material-ui/core/RadioGroup";
@@ -12,6 +10,7 @@ import firebase from "firebase";
 import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import UserProvider from "./UserProvider";
+import logo from "./../Navigation/Logo.svg";
 
 const now = new Date();
 const today = ` ${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
@@ -111,9 +110,9 @@ class Sign extends React.Component {
             <Container component="main" maxWidth="xs">
               <CssBaseline />
               <div>
-                <Avatar>
-                  <LockOutlinedIcon />
-                </Avatar>
+                <div className="logoSignIn">
+                  <img alt="MoveOnLogo" src={logo} />
+                </div>
                 <Typography component="h1" variant="h5">
                   {this.props.isSignUp ? "Sign up" : "Sign in"}
                 </Typography>
@@ -316,11 +315,11 @@ class Sign extends React.Component {
                   <Grid container justify="flex-end">
                     <Grid item>
                       {this.props.isSignUp ? (
-                        <NavLink to="/signin">
+                        <NavLink className="regularText" to="/signin">
                           Do you have an account? Sign In
                         </NavLink>
                       ) : (
-                        <NavLink to="/signup">
+                        <NavLink className="regularText" to="/signup">
                           Don't have an account? Sign Up
                         </NavLink>
                       )}
