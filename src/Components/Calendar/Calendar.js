@@ -579,7 +579,7 @@ class Demo extends React.PureComponent {
               </Fab>
             </Paper>
           ) : (
-            <h2>Sign In to check your calendar</h2>
+            <Heading content="SIGN IN TO CHECK YOUT CALENDAR" />
           );
         }}
       </UserProvider>

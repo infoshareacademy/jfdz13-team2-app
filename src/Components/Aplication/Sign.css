@@ -1,15 +1,32 @@
 .regularText {
   font: inherit;
   font-size: 1rem;
-  color: gray;
+  color: #080a1d;
   border: 0;
   display: inline;
-  align-items: stretch;
+  align-items: center;
   background: none;
   box-sizing: content-box;
 }
 
+.regularPText {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font: inherit;
+  font-size: 1rem;
+  color: gray;
+  border: 0;
+  display: inline-block;
+  align-items: center;
+  background: none;
+  box-sizing: content-box;
+}
 .radioButtonSign {
   display: flex;
   align-items: center;
+  color: secondary;
+  font: inherit;
+  font-size: 1rem;
+  border: 0;
+  color: gray;
 }

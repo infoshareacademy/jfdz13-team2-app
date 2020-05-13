@@ -50,7 +50,7 @@ class myProfile extends React.Component {
                 })}
             </div>
           ) : (
-            <h2>Sign In to see your Profile</h2>
+            <Heading content="SIGN IN TO SEE YOUR PROFILE" />
           );
         }}
       </UserProvider>

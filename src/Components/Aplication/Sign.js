@@ -3,16 +3,14 @@ import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import firebase from "firebase";
 import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import UserProvider from "./UserProvider";
-import logo from "./../Navigation/Logo.svg";
 import "./../Aplication/Sign.css";
-// import Heading from "./../../Components/Heading";
+import Heading from "./../../Components/Heading";
 
 const now = new Date();
 const today = ` ${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
@@ -109,19 +107,13 @@ class Sign extends React.Component {
               YOU ARE ALREADY LOGGED IN!
             </h2>
           ) : (
-            //    <Heading
-            //    style={{ textAlign: "center", marginTop: 20 }}
-            //    content="You are already logged in"
-            //  />
             <Container component="main" maxWidth="xs">
               <CssBaseline />
               <div>
-                <div className="logoSignIn">
-                  <img alt="MoveOnLogo" src={logo} />
-                </div>
-                <Typography component="h1" variant="h5">
-                  {this.props.isSignUp ? "Sign up" : "Sign in"}
-                </Typography>
+                <Heading
+                  content={this.props.isSignUp ? "SIGN UP" : "SIGN IN"}
+                />
+
                 <br />
                 <form noValidate onSubmit={this.handleOnSubmit}>
                   {this.props.isSignUp ? (
@@ -165,7 +157,7 @@ class Sign extends React.Component {
                                 checked={this.state.sex === "Female"}
                                 onChange={this.handleOnChange}
                               />
-                              <p className="regularText">Female</p>
+                              <p className="regularPText">Female</p>
                             </label>
 
                             <label>
@@ -176,7 +168,7 @@ class Sign extends React.Component {
                                 checked={this.state.sex === "Male"}
                                 onChange={this.handleOnChange}
                               />
-                              <p className="regularText">Male</p>
+                              <p className="regularPText">Male</p>
                             </label>
                           </div>
                         </RadioGroup>
@@ -296,11 +288,13 @@ class Sign extends React.Component {
                   >
                     {this.props.isSignUp ? "Sign up" : "Sign in"}
                   </Button>
+                  <br />
+                  <br />
                   <Grid container justify="flex-end">
                     <Grid item>
                       {this.props.isSignUp ? (
                         <NavLink className="regularText" to="/signin">
-                          DO YOU HAVE AN ACOOUNT? SIGN IN
+                          DO YOU HAVE AN ACCOUNT? SIGN IN
                         </NavLink>
                       ) : (
                         <NavLink className="regularText" to="/signup">
