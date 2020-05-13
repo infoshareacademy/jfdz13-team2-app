@@ -97,7 +97,7 @@ class Sign extends React.Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/my-profile" />;
+      return <Redirect to="/all-plans" />;
     }
     return (
       <UserProvider>

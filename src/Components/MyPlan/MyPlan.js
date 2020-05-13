@@ -105,9 +105,7 @@ class MyPlan extends React.Component {
     return (
       this.state.user && (
         <>
-          <Heading
-            content={`MY PLAN - ${this.state.myPlan.toUpperCase()} - DAY 1`}
-          />
+          <Heading content={`MY PLAN - ${this.state.myPlan.toUpperCase()}`} />
           <div className="training__container">
             {data.map(card => (
               <MyTrainingCard

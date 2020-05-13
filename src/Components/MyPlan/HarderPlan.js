@@ -34,7 +34,7 @@ class HarderPlan extends React.Component {
 
     return (
       <>
-        <Heading content={"MY PLAN - SLIMMER - DAY 1"} />
+        <Heading content={"MY PLAN - HARDER"} />
         <div className="training__container">
           {data.map(card => (
             <MyTrainingCard

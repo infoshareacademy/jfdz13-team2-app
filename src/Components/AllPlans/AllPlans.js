@@ -52,38 +52,60 @@ class AllPlans extends React.Component {
   }
 
   render() {
-    const { data } = this.state;
+    const { data, user } = this.state;
     console.log(this.state.user);
-    return (
-      this.state.user && (
-        <>
-          <Heading content="CHOOSE YOUR PERSONAL TRAINING PLAN" />
-          <div className={"training__container"}>
-            {data.map(plans => {
-              return (
-                <PlanCard
-                  component={Link}
-                  to="/Components/MyPlan/SlimmerPlan"
-                  id={plans.id}
-                  avatar={plans.avatar}
-                  title={plans.title}
-                  subheader={plans.subheader}
-                  goal={plans.goal}
-                  rating={plans.rating}
-                  content={plans.content}
-                  step_1={plans.step_1}
-                  step_2={plans.step_2}
-                  step_3={plans.step_3}
-                  image={plans.image}
-                  jump={plans.jump}
-                  key={plans.id}
-                  addedPlan={this.addedPlan}
-                ></PlanCard>
-              );
-            })}
-          </div>
-        </>
-      )
+    return user ? (
+      <>
+        <Heading content="CHOOSE YOUR PERSONAL TRAINING PLAN" />
+        <div className={"training__container"}>
+          {data.map(plans => {
+            return (
+              <PlanCard
+                id={plans.id}
+                avatar={plans.avatar}
+                title={plans.title}
+                subheader={plans.subheader}
+                goal={plans.goal}
+                rating={plans.rating}
+                content={plans.content}
+                step_1={plans.step_1}
+                step_2={plans.step_2}
+                step_3={plans.step_3}
+                image={plans.image}
+                jump={plans.jump}
+                key={plans.id}
+                addedPlan={this.addedPlan}
+              ></PlanCard>
+            );
+          })}
+        </div>
+      </>
+    ) : (
+      <>
+        <Heading content="SIGN IN TO CHOOSE YOUR PERSONAL TRAINING PLAN" />
+        <div className={"training__container"}>
+          {data.map(plans => {
+            return (
+              <PlanCard
+                id={plans.id}
+                avatar={plans.avatar}
+                title={plans.title}
+                subheader={plans.subheader}
+                goal={plans.goal}
+                rating={plans.rating}
+                content={plans.content}
+                step_1={plans.step_1}
+                step_2={plans.step_2}
+                step_3={plans.step_3}
+                image={plans.image}
+                jump={plans.jump}
+                key={plans.id}
+                addedPlan={this.addedPlan}
+              ></PlanCard>
+            );
+          })}
+        </div>
+      </>
     );
   }
 }
