@@ -82,12 +82,7 @@ class MyProfileCard extends React.Component {
                 <p>{sex}</p>
               </div>
             </div>
-            {/* <FormControl component="fieldset">
-              <FormLabel component="legend">Sex </FormLabel>
-              <RadioGroup aria-label="sex" name="sex">
-                <FormControlLabel value={age} control={<Radio />} label={sex} />
-              </RadioGroup>
-            </FormControl> */}
+
             <div>
               <p className="myProfile__userFieldHeading">Age</p>
               <div className="myProfile__userField">

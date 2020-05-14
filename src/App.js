@@ -11,6 +11,7 @@ import SlimmerPlan from "./Components/MyPlan/SlimmerPlan";
 import HarderPlan from "./Components/MyPlan/HarderPlan";
 import StrongerPlan from "./Components/MyPlan/StrongerPlan";
 import Sign from "./Components/Aplication/Sign";
+import Home from "./Components/Home";
 function App() {
   return (
     <div className="app__container">
@@ -18,7 +19,7 @@ function App() {
         <div>
           <Navigation>
             <Switch>
-              <Route exact path="/" component={WhyMoveOn} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/all-plans" component={AllPlans} />
               <Route exact path="/my-plan" component={MyPlan} />
               <Route exact path="/calendar" component={Calendar} />
@@ -26,7 +27,7 @@ function App() {
               <Route exact path="/slimmer-plan" component={SlimmerPlan} />
               <Route exact path="/harder-plan" component={HarderPlan} />
               <Route exact path="/stronger-plan" component={StrongerPlan} />
-
+              <Route exact path="/why-move-on" component={WhyMoveOn} />
               <Route path="/signup">
                 <Sign isSignUp />
               </Route>

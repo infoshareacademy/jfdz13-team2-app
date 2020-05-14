@@ -17,9 +17,9 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
-
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import TopBar from "./TopBar";
+import AccessibilityNewIcon from "@material-ui/icons/AccessibilityNew";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -49,8 +49,8 @@ const useStyles = makeStyles(theme => ({
     width: drawerWidth
   },
   content: {
-    flexGrow: 1,
-    padding: theme.spacing(3)
+    flexGrow: 1
+    // padding: theme.spacing(3),
   }
 }));
 
@@ -96,7 +96,13 @@ const Navigation = props => {
       {/* <div>Maciej</div> */}
       <Divider />
       <List>
-        <ListItemLink to="/" primary="Why MOVE ON" icon={<HomeIcon />} />
+        <ListItemLink to="/" primary="Home" icon={<HomeIcon />} />
+
+        <ListItemLink
+          to="/why-move-on"
+          primary="Why move on"
+          icon={<AccessibilityNewIcon />}
+        />
         <ListItemLink
           to="/all-plans"
           primary="All Plans"

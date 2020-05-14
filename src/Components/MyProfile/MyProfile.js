@@ -50,13 +50,8 @@ class myProfile extends React.Component {
                 })}
             </div>
           ) : (
-            <div>
-              <Heading content="SIGN IN TO SEE YOUR PROFILE" />
-              <img
-                className={"imageStyle"}
-                alt={"swimming person"}
-                src={"/images/swim.jpg"}
-              />
+            <div className={"myProfilePage"}>
+              <h1 className={"myProfileHeader"}>SIGN IN TO SEE YOUR PROFILE</h1>
             </div>
           );
         }}
