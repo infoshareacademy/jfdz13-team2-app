@@ -1,6 +1,9 @@
 body {
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
+
 .myProfilePage {
   display: flex;
   background-image: url("/images/swim.jpg");
@@ -9,12 +12,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  margin: 0;
-  padding: 0;
 }
 
 .myProfileHeader {
   color: white;
-  padding: 5%;
+  padding: 2%;
   margin: 0 auto;
 }

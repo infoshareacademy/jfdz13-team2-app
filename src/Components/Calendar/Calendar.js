@@ -40,6 +40,7 @@ import CalendarToday from "@material-ui/icons/CalendarToday";
 import Create from "@material-ui/icons/Create";
 import Heading from "./../Heading";
 import UserProvider from "./../Aplication/UserProvider";
+import "./Calendar.css";
 
 export const appointments = [
   {
@@ -579,7 +580,11 @@ class Demo extends React.PureComponent {
               </Fab>
             </Paper>
           ) : (
-            <Heading content="SIGN IN TO CHECK YOUR TRAINING SCHEDULE" />
+            <div className={"calendarPage"}>
+              <h1 className={"calendarHeader"}>
+                SIGN IN TO CHECK YOUR TRAINING SCHEDULE
+              </h1>
+            </div>
           );
         }}
       </UserProvider>

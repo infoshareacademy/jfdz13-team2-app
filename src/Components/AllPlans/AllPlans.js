@@ -81,7 +81,7 @@ class AllPlans extends React.Component {
       </>
     ) : (
       <>
-        <Heading content="SIGN IN TO CHOOSE YOUR PERSONAL TRAINING PLAN" />
+        <Heading content="SIGN IN TO CHOOSE TRAINING PLAN" />
         <div className={"training__container"}>
           {data.map(plans => {
             return (

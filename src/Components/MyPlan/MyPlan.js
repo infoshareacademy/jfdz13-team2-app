@@ -132,9 +132,11 @@ class MyPlan extends React.Component {
         </div>
       </>
     ) : (
-      <Heading
-        content={"SIGN IN TO CHANGE YOUR BODY, YOUR LIVE, YOUR FUTURE!"}
-      />
+      <div className={"myPlanPage"}>
+        <h1 className={"myPlanHeader"}>
+          SIGN IN TO CHANGE YOUR BODY, YOUR LIVE, YOUR FUTURE!
+        </h1>
+      </div>
     );
   }
 }
