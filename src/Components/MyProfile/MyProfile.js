@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./MyProfile.css";
 import MyProfileCard from "./MyProfileCard";
 import Heading from "../Heading";
 import UserProvider from "./../Aplication/UserProvider";
@@ -50,7 +50,14 @@ class myProfile extends React.Component {
                 })}
             </div>
           ) : (
-            <Heading content="SIGN IN TO SEE YOUR PROFILE" />
+            <div>
+              <Heading content="SIGN IN TO SEE YOUR PROFILE" />
+              <img
+                className={"imageStyle"}
+                alt={"swimming person"}
+                src={"/images/swim.jpg"}
+              />
+            </div>
           );
         }}
       </UserProvider>

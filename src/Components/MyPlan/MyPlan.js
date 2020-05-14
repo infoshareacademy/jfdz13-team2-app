@@ -55,7 +55,7 @@ class MyPlan extends React.Component {
           // return console.log(logedUser.myTrainingPlan);
           return this.setState({ myPlan: logedUser.myTrainingPlan });
         });
-    }, 1000);
+    }, 700);
   };
 
   fetchData = () => {
@@ -64,14 +64,23 @@ class MyPlan extends React.Component {
       fetch(`https://jfdz13-team2-app.firebaseio.com/${this.state.myPlan}.json`)
         .then(response => response.json())
         .then(data => this.setState({ data }));
-    }, 1500);
+    }, 1000);
   };
 
   componentDidMount() {
     this.setUser();
     this.fetchUsersData();
-    this.setPlan();
-    this.fetchData();
+    if (this.state.user) {
+      this.setPlan();
+      this.fetchData();
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.state.user) {
+      this.setPlan();
+      this.fetchData();
+    }
   }
 
   onExerciseStarted = () => {
@@ -102,24 +111,30 @@ class MyPlan extends React.Component {
     const { data, finishedExercises, isExerciseInProgress } = this.state;
 
     console.log(this.state.myPlan);
-    return (
-      this.state.user && (
-        <>
-          <Heading content={`MY PLAN - ${this.state.myPlan.toUpperCase()}`} />
-          <div className="training__container">
-            {data.map(card => (
-              <MyTrainingCard
-                key={card.id}
-                card={card}
-                onExerciseStarted={this.onExerciseStarted}
-                onExerciseFinished={this.onExerciseFinished}
-                isExerciseInProgress={isExerciseInProgress}
-                finishedExercises={finishedExercises}
-              />
-            ))}
-          </div>
-        </>
-      )
+    return this.state.user ? (
+      <>
+        <Heading
+          content={`MY PLAN - ${this.state.myPlan.toUpperCase() ||
+            "GO TO ALL PLANS AND CHOOSE WHAT YOU DESIRE"}`}
+        />
+
+        <div className="training__container">
+          {data.map(card => (
+            <MyTrainingCard
+              key={card.id}
+              card={card}
+              onExerciseStarted={this.onExerciseStarted}
+              onExerciseFinished={this.onExerciseFinished}
+              isExerciseInProgress={isExerciseInProgress}
+              finishedExercises={finishedExercises}
+            />
+          ))}
+        </div>
+      </>
+    ) : (
+      <Heading
+        content={"SIGN IN TO CHANGE YOUR BODY, YOUR LIVE, YOUR FUTURE!"}
+      />
     );
   }
 }
