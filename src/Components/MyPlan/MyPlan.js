@@ -20,14 +20,17 @@ class MyPlan extends React.Component {
       const ref = firebase.auth().onAuthStateChanged(user => {
         this.setState({ user });
       });
-
+      this.fetchUsersData().then(() => {
+        this.setPlan();
+        this.fetchData();
+      });
       this.setState({ ref });
       console.log(this.state.user);
     }, 500);
   };
 
   fetchUsersData = () => {
-    fetch("https://jfdz13-team2-app.firebaseio.com/UsersData.json/")
+    return fetch("https://jfdz13-team2-app.firebaseio.com/UsersData.json/")
       .then(resp => resp.json())
       .then(objectUsers => {
         const keys = Object.keys(objectUsers);
@@ -37,49 +40,38 @@ class MyPlan extends React.Component {
             ...objectUsers[key]
           };
         });
-
         this.setState({
           dataUsers: arrayUsers
         });
       });
   };
   setPlan = () => {
-    setTimeout(() => {
-      console.log(this.state.user);
-      console.log(this.state.dataUsers);
-      return this.state.dataUsers
-        .filter(logedUser => {
-          return logedUser.id === this.state.user.uid;
-        })
-        .map(logedUser => {
-          // return console.log(logedUser.myTrainingPlan);
-          return this.setState({ myPlan: logedUser.myTrainingPlan });
-        });
-    }, 700);
+    console.log(this.state.user);
+    console.log(this.state.dataUsers);
+    return this.state.dataUsers
+      .filter(logedUser => {
+        return logedUser.id === this.state.user.uid;
+      })
+      .map(logedUser => {
+        // return console.log(logedUser.myTrainingPlan);
+        return this.setState({ myPlan: logedUser.myTrainingPlan });
+      });
   };
 
   fetchData = () => {
-    setTimeout(() => {
-      // const plan = this.state.myPlan;
-      fetch(`https://jfdz13-team2-app.firebaseio.com/${this.state.myPlan}.json`)
-        .then(response => response.json())
-        .then(data => this.setState({ data }));
-    }, 1000);
+    // const plan = this.state.myPlan;
+    fetch(`https://jfdz13-team2-app.firebaseio.com/${this.state.myPlan}.json`)
+      .then(response => response.json())
+      .then(data => this.setState({ data }));
   };
 
   componentDidMount() {
     this.setUser();
-    this.fetchUsersData();
     if (this.state.user) {
-      this.setPlan();
-      this.fetchData();
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.state.user) {
-      this.setPlan();
-      this.fetchData();
+      this.fetchUsersData().then(() => {
+        this.setPlan();
+        this.fetchData();
+      });
     }
   }
 
@@ -134,7 +126,7 @@ class MyPlan extends React.Component {
     ) : (
       <div className={"myPlanPage"}>
         <h1 className={"myPlanHeader"}>
-          SIGN IN TO CHANGE YOUR BODY, YOUR LIVE, YOUR FUTURE!
+          SIGN IN TO CHANGE YOUR BODY, LIVE, FUTURE!
         </h1>
       </div>
     );

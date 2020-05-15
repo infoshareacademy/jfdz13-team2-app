@@ -4,14 +4,15 @@ import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import HowToRegIcon from "@material-ui/icons/HowToReg";
-import EditIcon from "@material-ui/icons/Edit";
+// import EditIcon from "@material-ui/icons/Edit";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Tooltip from "@material-ui/core/Tooltip";
 import SentimentDissatisfiedIcon from "@material-ui/icons/SentimentDissatisfied";
 import SentimentSatisfiedAltIcon from "@material-ui/icons/SentimentSatisfiedAlt";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
-import UserPersonalData from "./UserPersonalData";
+// import UserPersonalData from "./UserPersonalData";
 import { NavLink } from "react-router-dom";
+import "./MyProfile.css";
 
 class MyProfileCard extends React.Component {
   calculateBmi = () =>
@@ -99,7 +100,7 @@ class MyProfileCard extends React.Component {
               <p className="myProfile__userFieldHeading">Weight</p>
               <div className="myProfile__userField">
                 <p>{weight}</p>
-                <EditIcon />
+                {/* <EditIcon /> */}
               </div>
             </div>
           </CardContent>
@@ -145,7 +146,12 @@ class MyProfileCard extends React.Component {
             </CardContent>
           </div>
           <hr />
-          <UserPersonalData />
+          {/* <UserPersonalData /> */}
+          <img
+            src="/images/Profile_1.jpg"
+            alt="profile"
+            className="profilePicture"
+          />
         </Card>
       </>
     );

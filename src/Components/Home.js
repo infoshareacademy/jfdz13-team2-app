@@ -4,7 +4,8 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className={"homePage"}>
-      <h1 className={"homePageHeader"}>W E L C O M E</h1>
+      <h1 className={"homePageHeader"}>WELCOME</h1>
+      <h2 className={"homePageHeader"}>GOOD CHOICE TO MOVEON WITH US!</h2>
     </div>
   );
 };

@@ -304,6 +304,11 @@ class Sign extends React.Component {
                     </Grid>
                   </Grid>
                 </form>
+                <img
+                  src="/images/Sign_1.jpg"
+                  alt="Sign"
+                  className="signPicture"
+                />
               </div>
             </Container>
           );
