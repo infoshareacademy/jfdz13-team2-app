@@ -16,17 +16,19 @@ class MyPlan extends React.Component {
   };
 
   setUser = () => {
-    setTimeout(() => {
-      const ref = firebase.auth().onAuthStateChanged(user => {
-        this.setState({ user });
-      });
-      this.fetchUsersData().then(() => {
-        this.setPlan();
-        this.fetchData();
-      });
-      this.setState({ ref });
-      console.log(this.state.user);
-    }, 500);
+    // setTimeout(() => {
+    const ref = firebase.auth().onAuthStateChanged(user => {
+      this.setState({ user });
+      if (user) {
+        this.fetchUsersData().then(() => {
+          this.setPlan();
+          this.fetchData();
+        });
+      }
+    });
+    this.setState({ ref });
+    console.log(this.state.user);
+    // }, 500);
   };
 
   fetchUsersData = () => {
@@ -67,12 +69,12 @@ class MyPlan extends React.Component {
 
   componentDidMount() {
     this.setUser();
-    if (this.state.user) {
-      this.fetchUsersData().then(() => {
-        this.setPlan();
-        this.fetchData();
-      });
-    }
+    // if (this.state.user) {
+    //   this.fetchUsersData().then(() => {
+    //     this.setPlan();
+    //     this.fetchData();
+    //   });
+    // }
   }
 
   onExerciseStarted = () => {
@@ -107,20 +109,21 @@ class MyPlan extends React.Component {
       <>
         <Heading
           content={`MY PLAN - ${this.state.myPlan.toUpperCase() ||
-            "GO TO ALL PLANS AND CHOOSE WHAT YOU DESIRE"}`}
+            "GO TO ALL PLANS AND CHOOSE YOUR PLAN"}`}
         />
 
         <div className="training__container">
-          {data.map(card => (
-            <MyTrainingCard
-              key={card.id}
-              card={card}
-              onExerciseStarted={this.onExerciseStarted}
-              onExerciseFinished={this.onExerciseFinished}
-              isExerciseInProgress={isExerciseInProgress}
-              finishedExercises={finishedExercises}
-            />
-          ))}
+          {this.state.myPlan &&
+            data.map(card => (
+              <MyTrainingCard
+                key={card.id}
+                card={card}
+                onExerciseStarted={this.onExerciseStarted}
+                onExerciseFinished={this.onExerciseFinished}
+                isExerciseInProgress={isExerciseInProgress}
+                finishedExercises={finishedExercises}
+              />
+            ))}
         </div>
       </>
     ) : (
