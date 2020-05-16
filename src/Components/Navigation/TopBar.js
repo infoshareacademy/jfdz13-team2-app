@@ -6,6 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import avatar from "./avatar.svg";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
@@ -222,19 +223,22 @@ export default function PrimarySearchAppBar() {
                       <NotificationsIcon />
                     </Badge>
                   </IconButton> */}
-                  <IconButton
-                    edge="end"
-                    aria-label="account of current user"
-                    aria-controls={menuId}
-                    aria-haspopup="true"
-                    onClick={handleProfileMenuOpen}
-                    color="inherit"
-                  >
-                    <Avatar alt="Remy Sharp" src={avatar} />
-                  </IconButton>
+                  {user ? (
+                    <IconButton
+                      edge="end"
+                      aria-label="account of current user"
+                      aria-controls={menuId}
+                      aria-haspopup="true"
+                      onClick={handleProfileMenuOpen}
+                      color="inherit"
+                    >
+                      {/* <Avatar alt="Remy Sharp" src={avatar} /> */}
+                      <AccountCircleIcon style={{ height: "150%" }} />
+                    </IconButton>
+                  ) : null}
                 </div>
                 <div className={classes.sectionMobile}>
-                  <IconButton
+                  {/* <IconButton
                     aria-label="show more"
                     aria-controls={mobileMenuId}
                     aria-haspopup="true"
@@ -242,7 +246,7 @@ export default function PrimarySearchAppBar() {
                     color="inherit"
                   >
                     <MoreIcon />
-                  </IconButton>
+                  </IconButton> */}
                 </div>
               </Toolbar>
             </>
