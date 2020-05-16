@@ -1,14 +1,15 @@
 import React from "react";
 import firebase from "firebase";
+import placeholder from "../Navigation/Logo.svg";
 
 class UserProvider extends React.Component {
   state = {
     user: null,
-    ref: null
+    ref: null,
   };
 
   componentDidMount() {
-    const ref = firebase.auth().onAuthStateChanged(user => {
+    const ref = firebase.auth().onAuthStateChanged((user) => {
       this.setState({ user });
     });
 

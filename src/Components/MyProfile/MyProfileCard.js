@@ -12,9 +12,48 @@ import SentimentSatisfiedAltIcon from "@material-ui/icons/SentimentSatisfiedAlt"
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 // import UserPersonalData from "./UserPersonalData";
 import { NavLink } from "react-router-dom";
+import firebase from "firebase";
+import Button from "@material-ui/core/Button";
+import DoubleArrowRoundedIcon from "@material-ui/icons/DoubleArrowRounded";
 import "./MyProfile.css";
 
 class MyProfileCard extends React.Component {
+  state = {
+    file: null,
+    url: "",
+  };
+
+  componentDidMount() {
+    this.fetchAvatarUrl();
+    console.log(this.props.user);
+  }
+
+  handleOnChange = (event) => {
+    this.setState({
+      file: event.target.files[0],
+    });
+  };
+  handleOnClick = () => {
+    firebase
+      .storage()
+      .ref(`avatars/${this.props.user.id}`)
+      .put(this.state.file)
+      .then(() => {
+        this.fetchAvatarUrl();
+      });
+  };
+  fetchAvatarUrl = () => {
+    firebase
+      .storage()
+      .ref(`avatars/${this.props.user.id}`)
+      .getDownloadURL()
+      .then((url) => {
+        this.setState({
+          url,
+        });
+      });
+  };
+
   calculateBmi = () =>
     (
       this.props.user.weight / Math.pow(this.props.user.height / 100, 2)
@@ -34,7 +73,6 @@ class MyProfileCard extends React.Component {
 
   render() {
     const {
-      // avatarUrl,
       firstName,
       lastName,
       date,
@@ -42,7 +80,7 @@ class MyProfileCard extends React.Component {
       sex,
       age,
       height,
-      weight
+      weight,
     } = this.props.user;
 
     const logo = `${firstName.slice(0, 1)}${lastName.slice(0, 1)}`;
@@ -51,19 +89,32 @@ class MyProfileCard extends React.Component {
       <>
         <Card className="myProfile">
           <CardHeader
-            // avatar={
-            //   <img
-            //     className="myProfile__avatar"
-            //     src={avatarUrl}
-            //     alt="myPhoto"
-            //   />
-            // }
             avatar={
-              <Avatar style={{ backgroundColor: "#080a1d" }}>{logo}</Avatar>
+              this.state.url ? (
+                <img
+                  className="myProfile__avatar"
+                  src={this.state.url}
+                  alt="myPhoto"
+                />
+              ) : (
+                <Avatar style={{ backgroundColor: "#080a1d" }}>{logo}</Avatar>
+              )
             }
             title={`${firstName} ${lastName}`}
             subheader={`MoveOn since: ${date}`}
           />
+          <input type="file" onChange={this.handleOnChange} />
+          <Button
+            variant="contained"
+            color="primary"
+            style={{
+              backgroundColor: "#fe466a",
+            }}
+            onClick={this.handleOnClick}
+            endIcon={<DoubleArrowRoundedIcon />}
+          >
+            Add avatar
+          </Button>
           <hr />
           <CardContent className="myProfile__container">
             <div>
