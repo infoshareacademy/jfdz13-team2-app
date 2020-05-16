@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .myPlanPage {
   display: flex;
   background-image: url("/images/heroImage1.jpg");

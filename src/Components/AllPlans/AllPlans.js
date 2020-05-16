@@ -52,7 +52,6 @@ class AllPlans extends React.Component {
 
   render() {
     const { data, user } = this.state;
-    console.log(this.state.user);
 
     return user ? (
       <>

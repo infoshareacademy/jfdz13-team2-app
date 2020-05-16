@@ -16,7 +16,6 @@ class MyPlan extends React.Component {
   };
 
   setUser = () => {
-    // setTimeout(() => {
     const ref = firebase.auth().onAuthStateChanged(user => {
       this.setState({ user });
       if (user) {
@@ -27,8 +26,6 @@ class MyPlan extends React.Component {
       }
     });
     this.setState({ ref });
-    console.log(this.state.user);
-    // }, 500);
   };
 
   fetchUsersData = () => {
@@ -48,20 +45,16 @@ class MyPlan extends React.Component {
       });
   };
   setPlan = () => {
-    console.log(this.state.user);
-    console.log(this.state.dataUsers);
     return this.state.dataUsers
       .filter(logedUser => {
         return logedUser.id === this.state.user.uid;
       })
       .map(logedUser => {
-        // return console.log(logedUser.myTrainingPlan);
         return this.setState({ myPlan: logedUser.myTrainingPlan });
       });
   };
 
   fetchData = () => {
-    // const plan = this.state.myPlan;
     fetch(`https://jfdz13-team2-app.firebaseio.com/${this.state.myPlan}.json`)
       .then(response => response.json())
       .then(data => this.setState({ data }));
@@ -69,12 +62,6 @@ class MyPlan extends React.Component {
 
   componentDidMount() {
     this.setUser();
-    // if (this.state.user) {
-    //   this.fetchUsersData().then(() => {
-    //     this.setPlan();
-    //     this.fetchData();
-    //   });
-    // }
   }
 
   onExerciseStarted = () => {
@@ -102,18 +89,23 @@ class MyPlan extends React.Component {
 
   render() {
     this.onWholePlanFinished();
-    const { data, finishedExercises, isExerciseInProgress } = this.state;
+    const {
+      data,
+      finishedExercises,
+      isExerciseInProgress,
+      user,
+      myPlan
+    } = this.state;
 
-    console.log(this.state.myPlan);
-    return this.state.user ? (
+    return user ? (
       <>
         <Heading
-          content={`MY PLAN - ${this.state.myPlan.toUpperCase() ||
+          content={`MY PLAN - ${myPlan.toUpperCase() ||
             "GO TO ALL PLANS AND CHOOSE YOUR PLAN"}`}
         />
 
         <div className="training__container">
-          {this.state.myPlan &&
+          {myPlan &&
             data.map(card => (
               <MyTrainingCard
                 key={card.id}
