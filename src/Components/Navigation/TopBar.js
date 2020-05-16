@@ -7,12 +7,12 @@ import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import avatar from "./avatar.svg";
+//import avatar from "./avatar.svg";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import MoreIcon from "@material-ui/icons/MoreVert";
+//import MoreIcon from "@material-ui/icons/MoreVert";
 import logo from "./LogoWhite.svg";
 import "./Navigation.css";
-import Avatar from "@material-ui/core/Avatar";
+//import Avatar from "@material-ui/core/Avatar";
 import { NavLink as Link } from "react-router-dom";
 import firebase from "firebase";
 import UserProvider from "./../../Components/Aplication/UserProvider";
@@ -107,9 +107,9 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = event => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+  // const handleMobileMenuOpen = event => {
+  //   setMobileMoreAnchorEl(event.currentTarget);
+  // };
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
