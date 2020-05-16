@@ -214,14 +214,14 @@ export default function PrimarySearchAppBar() {
                   )}
                 </div>
                 <div className={classes.sectionDesktop}>
-                  <IconButton
+                  {/* <IconButton
                     aria-label="show 17 new notifications"
                     color="inherit"
                   >
                     <Badge badgeContent={17} color="secondary">
                       <NotificationsIcon />
                     </Badge>
-                  </IconButton>
+                  </IconButton> */}
                   <IconButton
                     edge="end"
                     aria-label="account of current user"
