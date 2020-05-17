@@ -4,8 +4,6 @@ import StarRoundedIcon from "@material-ui/icons/StarRounded";
 import Tooltip from "@material-ui/core/Tooltip";
 
 const Rating = props => {
-  console.log("props ", props);
-
   return (
     <>
       <div className="star_allPlans">

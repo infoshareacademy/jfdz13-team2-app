@@ -2,3 +2,26 @@
   height: 50px;
   width: 50px;
 }
+
+.topBarContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.topBarButton {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+.logoSignIn {
+  display: flex;
+  height: 50px;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.regularText {
+  font-size: 15px;
+  color: #fe466a;
+}

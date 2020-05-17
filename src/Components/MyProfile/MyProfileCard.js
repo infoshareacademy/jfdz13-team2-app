@@ -1,19 +1,18 @@
 import React from "react";
+import Avatar from "@material-ui/core/Avatar";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
+import HowToRegIcon from "@material-ui/icons/HowToReg";
+// import EditIcon from "@material-ui/icons/Edit";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Tooltip from "@material-ui/core/Tooltip";
 import SentimentDissatisfiedIcon from "@material-ui/icons/SentimentDissatisfied";
 import SentimentSatisfiedAltIcon from "@material-ui/icons/SentimentSatisfiedAlt";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-
-import UserPersonalData from "./UserPersonalData";
+// import UserPersonalData from "./UserPersonalData";
+import { NavLink } from "react-router-dom";
+import "./MyProfile.css";
 
 class MyProfileCard extends React.Component {
   calculateBmi = () =>
@@ -35,74 +34,75 @@ class MyProfileCard extends React.Component {
 
   render() {
     const {
-      avatarUrl,
-      name,
-      firstTraining,
-      myTraining,
+      // avatarUrl,
+      firstName,
+      lastName,
+      date,
+      myTrainingPlan,
       sex,
       age,
       height,
       weight
     } = this.props.user;
 
+    const logo = `${firstName.slice(0, 1)}${lastName.slice(0, 1)}`;
+
     return (
       <>
         <Card className="myProfile">
           <CardHeader
+            // avatar={
+            //   <img
+            //     className="myProfile__avatar"
+            //     src={avatarUrl}
+            //     alt="myPhoto"
+            //   />
+            // }
             avatar={
-              <img
-                className="myProfile__avatar"
-                src={avatarUrl}
-                alt="myPhoto"
-              />
+              <Avatar style={{ backgroundColor: "#080a1d" }}>{logo}</Avatar>
             }
-            title={name}
-            subheader={`MoveOn since: ${firstTraining}`}
+            title={`${firstName} ${lastName}`}
+            subheader={`MoveOn since: ${date}`}
           />
           <hr />
           <CardContent className="myProfile__container">
-            <FormControl component="fieldset">
-              <FormLabel component="legend">My Training Plan</FormLabel>
-              <RadioGroup aria-label="trainingPlan" name="trainingPlan">
-                <FormControlLabel
-                  value={age}
-                  control={<Radio />}
-                  label={myTraining}
-                />
-              </RadioGroup>
-            </FormControl>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Sex </FormLabel>
-              <RadioGroup aria-label="sex" name="sex">
-                <FormControlLabel value={age} control={<Radio />} label={sex} />
-              </RadioGroup>
-            </FormControl>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Age </FormLabel>
-              <RadioGroup aria-label="age" name="age">
-                <FormControlLabel value={age} control={<Radio />} label={age} />
-              </RadioGroup>
-            </FormControl>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Height </FormLabel>
-              <RadioGroup aria-label="height" name="height">
-                <FormControlLabel
-                  value={height}
-                  control={<Radio />}
-                  label={height}
-                />
-              </RadioGroup>
-            </FormControl>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Weight </FormLabel>
-              <RadioGroup aria-label="weight" name="weight">
-                <FormControlLabel
-                  value={weight}
-                  control={<Radio />}
-                  label={weight}
-                />
-              </RadioGroup>
-            </FormControl>
+            <div>
+              <p className="myProfile__userFieldHeading">My Training Plan</p>
+              <div className="myProfile__userField">
+                <Tooltip title="Choose your plan">
+                  <NavLink style={{ color: "black" }} to="/all-plans">
+                    <HowToRegIcon />
+                  </NavLink>
+                </Tooltip>
+                <p>{myTrainingPlan}</p>
+              </div>
+            </div>
+            <div>
+              <p className="myProfile__userFieldHeading">Sex</p>
+              <div className="myProfile__userField">
+                <p>{sex}</p>
+              </div>
+            </div>
+
+            <div>
+              <p className="myProfile__userFieldHeading">Age</p>
+              <div className="myProfile__userField">
+                <p>{age}</p>
+              </div>
+            </div>
+            <div>
+              <p className="myProfile__userFieldHeading">Height</p>
+              <div className="myProfile__userField">
+                <p>{height}</p>
+              </div>
+            </div>
+            <div>
+              <p className="myProfile__userFieldHeading">Weight</p>
+              <div className="myProfile__userField">
+                <p>{weight}</p>
+                {/* <EditIcon /> */}
+              </div>
+            </div>
           </CardContent>
           <hr />
           <div>
@@ -146,7 +146,12 @@ class MyProfileCard extends React.Component {
             </CardContent>
           </div>
           <hr />
-          <UserPersonalData />
+          {/* <UserPersonalData /> */}
+          <img
+            src="/images/Profile_1.jpg"
+            alt="profile"
+            className="profilePicture"
+          />
         </Card>
       </>
     );

@@ -1,0 +1,25 @@
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.myProfilePage {
+  display: flex;
+  background-image: url("/images/swim.jpg");
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.myProfileHeader {
+  color: white;
+  padding: 2%;
+  margin: 0 auto;
+}
+.profilePicture {
+  width: 100%;
+  margin-top: 2%;
+}

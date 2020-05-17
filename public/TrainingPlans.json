@@ -2,7 +2,7 @@
   {
     "id": "1",
     "avatar": "SL",
-    "title": "SLIMMER",
+    "title": "Slimmer",
     "goal": "Weight loss",
     "rating": "3",
     "content": "Give us three weeks. We will change your body.",
@@ -15,7 +15,7 @@
   {
     "id": "2",
     "avatar": "HA",
-    "title": "HARDER",
+    "title": "Harder",
     "goal": "Muscle building",
     "rating": "5",
     "content": "Sculpt your perfect six-pack in just three weeks.",
@@ -28,7 +28,7 @@
   {
     "id": "3",
     "avatar": "ST",
-    "title": "STRONGER",
+    "title": "Stronger",
     "goal": "Gain strength",
     "rating": "4",
     "content": "Over the next 3 weeks you will challenge every limit.",

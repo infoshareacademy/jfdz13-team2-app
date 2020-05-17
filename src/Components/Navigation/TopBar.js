@@ -1,21 +1,24 @@
 import React from "react";
-import { fade, makeStyles } from "@material-ui/core/styles";
 
+import { fade, makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-
-import avatar from "./avatar.svg";
-
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+//import avatar from "./avatar.svg";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import MoreIcon from "@material-ui/icons/MoreVert";
+//import MoreIcon from "@material-ui/icons/MoreVert";
 import logo from "./LogoWhite.svg";
 import "./Navigation.css";
-import Avatar from "@material-ui/core/Avatar";
+//import Avatar from "@material-ui/core/Avatar";
 import { NavLink as Link } from "react-router-dom";
+import firebase from "firebase";
+import UserProvider from "./../../Components/Aplication/UserProvider";
+import Button from "@material-ui/core/Button";
+import DoubleArrowRoundedIcon from "@material-ui/icons/DoubleArrowRounded";
+
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1
@@ -81,6 +84,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const handleSignOut = () => {
+    firebase.auth().signOut();
+  };
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -101,9 +107,9 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = event => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+  // const handleMobileMenuOpen = event => {
+  //   setMobileMoreAnchorEl(event.currentTarget);
+  // };
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -166,46 +172,89 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <div className={classes.grow}>
-      <>
-        <Toolbar>
-          <div className="toolbarLogo">
-            <img src={logo} alt="MoveOnLogo" />
+    <UserProvider>
+      {user => {
+        return (
+          <div className={classes.grow}>
+            <>
+              <Toolbar>
+                <div className="toolbarLogo">
+                  <img src={logo} alt="MoveOnLogo" />
+                </div>
+                <div className={classes.grow} />
+                <div className="topBarContainer">
+                  {user ? (
+                    <div>
+                      <Link to="/">
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          style={{
+                            backgroundColor: "#fe466a"
+                          }}
+                          className={classes.button}
+                          onClick={handleSignOut}
+                          endIcon={<DoubleArrowRoundedIcon />}
+                        >
+                          Sign out
+                        </Button>
+                      </Link>
+                    </div>
+                  ) : (
+                    <Link to="/signin">
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        style={{ backgroundColor: "#fe466a" }}
+                        className={classes.button}
+                        endIcon={<DoubleArrowRoundedIcon />}
+                      >
+                        Sign in
+                      </Button>
+                    </Link>
+                  )}
+                </div>
+                <div className={classes.sectionDesktop}>
+                  {/* <IconButton
+                    aria-label="show 17 new notifications"
+                    color="inherit"
+                  >
+                    <Badge badgeContent={17} color="secondary">
+                      <NotificationsIcon />
+                    </Badge>
+                  </IconButton> */}
+                  {user ? (
+                    <IconButton
+                      edge="end"
+                      aria-label="account of current user"
+                      aria-controls={menuId}
+                      aria-haspopup="true"
+                      onClick={handleProfileMenuOpen}
+                      color="inherit"
+                    >
+                      {/* <Avatar alt="Remy Sharp" src={avatar} /> */}
+                      <AccountCircleIcon style={{ height: "150%" }} />
+                    </IconButton>
+                  ) : null}
+                </div>
+                <div className={classes.sectionMobile}>
+                  {/* <IconButton
+                    aria-label="show more"
+                    aria-controls={mobileMenuId}
+                    aria-haspopup="true"
+                    onClick={handleMobileMenuOpen}
+                    color="inherit"
+                  >
+                    <MoreIcon />
+                  </IconButton> */}
+                </div>
+              </Toolbar>
+            </>
+            {renderMobileMenu}
+            {renderMenu}
           </div>
-
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <Avatar alt="Remy Sharp" src={avatar} />
-            </IconButton>
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
-        </Toolbar>
-      </>
-      {renderMobileMenu}
-      {renderMenu}
-    </div>
+        );
+      }}
+    </UserProvider>
   );
 }

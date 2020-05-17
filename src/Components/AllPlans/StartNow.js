@@ -10,16 +10,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const StartNowButton = ({ jump }) => {
+const StartNowButton = ({ jump, onClicked }) => {
   const classes = useStyles();
 
   return (
     <div>
-      {console.log(jump)}
-      {/* This Button uses a Font Icon, see the installation instructions in the Icon component docs. */}
       <Button
         component={Link}
         to={jump}
+        onClick={onClicked}
         variant="contained"
         color="primary"
         //style={{ backgroundColor: "#080a1d" }}

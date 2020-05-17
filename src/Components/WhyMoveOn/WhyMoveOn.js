@@ -97,6 +97,7 @@ const WhyMoveOn = () => {
   return (
     <div>
       <Heading content="WHY MOVE ON" />
+
       <div className={"doughnutChart"}>
         <Doughnut data={usersGender} options={usersGender.options} />
       </div>
